@@ -1,0 +1,12 @@
+.beerCard {
+	width: 200px;
+	height: 250px;
+	background-color: gray;
+	text-align: center;
+	margin-left: 50px;
+	margin-top: 50px;
+}
+
+div.beerCard {
+	display: inline-block;
+}

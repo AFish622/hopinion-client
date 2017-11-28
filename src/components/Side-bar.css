@@ -1,0 +1,10 @@
+.side-bar {
+	height: 1000px;
+	width: 25%;
+	background-color: gray;
+	background-attachment: scroll;
+	/*background-color: gray;*/
+  	background-color: #161C21;
+  	position: fixed;
+  	overflow: scroll;
+}
