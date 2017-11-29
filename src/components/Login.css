@@ -1,0 +1,47 @@
+.login-container {
+  background-color: gray;
+  width: 40%;
+  height: 350px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid black;
+  margin-top: 5%;
+}
+
+form.login-form {
+  display: block;
+  margin-top: 5%;
+  padding: 5%;
+}
+
+.head {
+  border: 1px solid black;
+  text-align: center;
+  background-color: white;
+  height: 15%;
+  font-size: 20px;
+}
+
+input {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 20px;
+  width: 75%;
+  height: 40px;
+  font-size: 20px;
+  border: 1px solid black;
+}
+
+input.signup-submit {
+  text-align: center;
+  background-color: #aaa;
+}
+
+.register-link {
+  color: yellow;
+}
+
+.form-links {
+  text-align: center;
+}

@@ -8,9 +8,8 @@ export default class BeerCard extends React.Component {
 		return (
 			<div className="beerCard">
 				<p>Beer Name</p>
-				<p>Syle</p>
-				<p>ABV</p>
 				<p>Beer Logo</p>
+				<p>Beer Style</p>
 			</div>
 		)
 	}

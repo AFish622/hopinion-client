@@ -1,0 +1,42 @@
+.landing-head {
+	height: 650px;
+	background-color: gray;
+	border-top: 1px solid black;
+	/*position: fixed;*/
+	width: 100%;
+}
+
+.title {
+	float: left;
+}
+
+.statement {
+	text-align: center;
+	margin-top: 200px;
+}
+
+input.landing-signup, input.info {
+	width: 10%;
+}
+
+.first-row {
+	background-color: #aaa;
+	margin-top: -20px;
+	height: 650px;
+}
+
+.bullet-1 {
+	float: left;
+	margin-left: 50px;
+}
+
+.second-row {
+	background-color: gray;
+	height: 650px;
+	margin-top: -20px;
+}
+
+.bullet-2 {
+	float: right;
+	margin-right: 50px;
+}

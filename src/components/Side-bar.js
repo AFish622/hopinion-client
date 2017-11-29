@@ -1,12 +1,19 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
 
 import SideBreweries from './SideBrew';
 import './Side-bar.css'
 
-export default class SideBar extends React.Component {
+export class SideBar extends React.Component {
+
+
 		render() {
+
 			return (
-				<div className="side-bar">
+				<div className="side-bar"  >
+					<SideBreweries  onClick={''}/>
+					<SideBreweries />
 					<SideBreweries />
 					<SideBreweries />
 					<SideBreweries />
@@ -19,5 +26,7 @@ export default class SideBar extends React.Component {
 	}
 }
 
+
+export default connect()(SideBar);
 
 

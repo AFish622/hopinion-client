@@ -3,12 +3,19 @@
 }
 
 nav {
-  padding: 1.5%;
+  /*padding: 1.5%;*/
   background-color: #161C21;
   position: fixed;
   z-index: 10;
   width: 100%;
   margin-bottom: 5px;
+  border-top: 1px solid black;
+  vertical-align: middle;
+}
+
+input.main-search {
+	display: inline;
+	margin-top: 1%;
 }
 
 h1.title {
@@ -29,6 +36,7 @@ li {
 	float: right;
 	padding-right: 2%;
 	font-size: 20px;
+	margin-top: 2%
 }
 
 .main-search {
