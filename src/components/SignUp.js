@@ -1,60 +1,58 @@
 import React from 'react';
-import { reduxForm, Field } from 'redux-form';
-import { Link } from 'react-router-dom'
+import { reduxForm, Field, focus } from 'redux-form';
+import { Link } from 'react-router-dom';
 import { required, nonEmpty, matches, length, isTrimmed } from '../validators';
+import { registerUser } from '../actions/userActions';
+import { login } from '../actions/authActions'
 import Input from './Input'
 import './SignUp.css';
 
 
 export class SignUp extends React.Component {
-	onSubmit(values) {
-		return fetch('', {
-			method: 'POST',
-			body: JSON.stringify(values),
-			headers: { 'Content-Type': 'application.json' }
-		})
-	}
-
-	// onSubmit(values) {
- //        const {username, password, firstName, lastName} = values;
- //        const user = {username, password, firstName, lastName};
- //        return this.props
- //            .dispatch(registerUser(user))
- //            .then(() => this.props.dispatch(login(username, password)));
- //    }
-
+    onSubmit(values) {
+        const { username, password, firstName, lastName } = values;
+        const user = { username, password, firstName, lastName };
+        return this.props
+            .dispatch(registerUser(user))
+            .then(() => this.props.dispatch(login(username, password)));
+    }
 
 	render() {
 		return (
-			<div>
+			<div className="signup-body">
 				<div className="signup-container">
 					<div className="head">
-						<p>Sign Up</p>
+						<p>Create Your Hopinion Account</p>
 					</div>
 
 					<form className="signup-form" onClick={this.props.handleSubmit(values => this.onSubmit(values))} >
+                        <label htmlFor="firstName">First name</label>
 						<Field
-						 name="first-name" type="text" placeholder="first name" 
+						 name="first-name" type="text" value="Austin"
 						  component={Input} validate={[required, nonEmpty]}
 						/>
 
+                        <label htmlFor="lastName">Last name</label>
 						<Field
-						 name="last-name" type="text" placeholder="last name"
+						 name="last-name" type="text" value="Fisher"
 						   component={Input} validate={[required, nonEmpty]}
 						/>
 
+                        <label htmlFor="username">Username</label>
 						<Field
-						 name="username" type="text" placeholder="username"
+						 name="username" type="text" value="user"
 						  component={Input} validate={[required, nonEmpty, isTrimmed]}
 						/>
 
+                        <label htmlFor="password">Password</label>
 						<Field
-						 name="password" type="text" placeholder="password"
+						 name="password" type="text" value="123"
 						  component={Input} validate={[required, length({min: 3, max: 20}), isTrimmed]}
 						/>
 
+                        <label htmlFor="passwordConfirm">Confirm password</label>
 						<Field
-						 name="confirm-password" type="text" placeholder="confirm password"
+						 name="confirm-password" type="text" value="123"
 						  component={Input} validate={[required, nonEmpty, matches('password')]}
 						/>
 
@@ -66,7 +64,7 @@ export class SignUp extends React.Component {
         			</form>
 
         			<div className="form-links">
-          				<p>Alreadt have an account?<Link to="/login"> Login</Link></p>
+          				<p>Already have an account?<Link to="/login"> Login</Link></p>
         			</div>
 				</div>
 			</div>
@@ -76,6 +74,6 @@ export class SignUp extends React.Component {
 
 export default reduxForm({
     form: 'signUp',
-    // onSubmitFail: (errors, dispatch) =>
-    // 	dispatch(focus('signUp', Object.keys(errors)[0]))
+    onSubmitFail: (errors, dispatch) =>
+    	dispatch(focus('signUp', Object.keys(errors)[0]))
 })(SignUp);

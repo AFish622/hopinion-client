@@ -5,30 +5,29 @@
 nav {
   /*padding: 1.5%;*/
   background-color: #161C21;
-  position: fixed;
+  /*position: fixed;*/
   z-index: 10;
   width: 100%;
-  margin-bottom: 5px;
+  height: 100px;
+  /*margin-bottom: 5px;*/
   border-top: 1px solid black;
   vertical-align: middle;
-}
-
-input.main-search {
-	display: inline;
-	margin-top: 1%;
+  position: relative;
 }
 
 h1.title {
 	color: #999999;
 	text-align: left;
 	padding-left: 1%;
-	display: inline;
+	padding-top: .5%;
 }
 
 ul.nav-list {
 	list-style-type: none;
 	color: #999999;
 	display: inline;
+	vertical-align: middle;
+	/*position: relative;*/
 }
 
 li {
@@ -39,7 +38,51 @@ li {
 	margin-top: 2%
 }
 
-.main-search {
-	width: 200px;
-	margin-left: 40px;
+.log-out-button {
+	display: inline;
+	white-space: nowrap;
+    cursor: pointer;
+}
+
+#button-holder{
+    background-color: #FFFFFF;
+    border-top: thin solid #e5e5e5;
+    /*box-shadow: 1px 1px 1px 1px #e5e5e5;*/
+    cursor: pointer;
+    float: left;
+    height: 38px;
+    margin-top: 1.5%;
+    text-align: center;
+    width: 50px;
+    border-radius: 100px;
+    position: relative;
+    right: 3%;
+
+}
+
+
+input#main-search {
+    border-top: thin solid  #e5e5e5;
+    border-right: thin solid #e5e5e5;
+    border-bottom: 0;
+    border-left: thin solid  #e5e5e5;
+    box-shadow: 0px 1px 1px 1px #e5e5e5;
+    float: left;
+    height: 35px;
+    outline: 0;
+    padding: .4em 0 .4em .6em; 
+    width: 183px; 
+    display: inline;
+	margin-top: 1.5%;
+	width: 225px;
+	margin-left: 2%;
+	position: relative;
+	border-radius: 100px;
+	padding-left: 1%;
+}
+  
+#button-holder img{
+    margin: 9px;
+    width: 20px;
+    background-color: #FFFFFF;
 }

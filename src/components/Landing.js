@@ -1,46 +1,126 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { Link, Redirect } from 'react-router-dom';
+import Modal from 'react-modal';
+
+
 
 import './Landing.css';
 
-export default class Landing extends React.Component {
+export class Landing extends React.Component {
+
+	constructor() {
+		super()
+		this.state = {
+			modalIsOpen: false
+		}
+		this.openModal = this.openModal.bind(this);
+    	this.closeModal = this.closeModal.bind(this);
+	}
+
+	openModal() {
+    	this.setState({modalIsOpen: true});
+  	}
+
+ 
+  	closeModal() {
+    	this.setState({modalIsOpen: false});
+ 	}
+
+
 	render() {
+		if (this.props.loggedIn) {
+ 			return <Redirect to="/dashboard" />
+ 		}
+
 		return (
 			<div>
-			<div className="landing-head">
-				<div>
-					<ul class="landing-nav">
-						<li>Sign In</li>
-						<li>Sign Up</li>
-						<li class="title">Hopinion</li>
-					</ul>
+				<Modal
+	  				isOpen={this.state.modalIsOpen}
+	  				setAppElement={'.landing-page'}
+				>
+					<div className="info-modal">
+						<button className="closeInfoModal" onClick={this.closeModal}>X</button>
+		  				<h1>Features and Functionality</h1>
+
+		  				<h2>Discover Local Beers</h2>
+		  				<p>Once you sign in, search any city and discover local breweries
+		  				by navigating the map or searching through the side bar</p>
+
+		  				<h2>Find the Right Beer for You</h2>
+		  				<p>Seach through any brewery and get a list of all beers and specfic
+		  				details about each beer and when they are available</p>
+
+		  				<h2>Know Exactly What You're Ordering</h2>
+		  				<p>Find out what other users think of each beer by viewing
+		  				their Hopinion, or add your own Hopinion to share with others.</p>
+
+		  				<h2>Keep Track of Your Hopinions</h2>
+		  				<p>Once you have added your Hopinion on a beer, navigate to 
+		  				your personalized Hopinion page to recall tasting notes and ratings of
+		  				beers you've had.</p>
+		  			</div>
+				</Modal>				
+
+			<div className="landing-page">
+				<div className="landing-head">
+					<div>
+						<ul className="landing-nav">
+							<li><Link to="/login" >Log in</Link></li>
+							<li><Link to="/signup">Sign Up</Link></li>
+							<li className="title">Hopinion</li>
+						</ul>
+					</div>
+
+					<div className="statement">
+						<h1>Find out what the locals like</h1>
+						<p>Hopinion is an user based application that allows you to discover
+						breweries and beers in a location and get user feedback about those beers. 
+						Create an account and get started!</p>
+					</div>
+
+					<div className="landing-inputs">
+						<Link to="/login">
+							<input type="submit" value="Log in" className="landing-signup" />
+						</Link>
+
+						<input type="submit" value="How it Works" className="info" onClick={this.openModal} />
+					</div>
 				</div>
 
-				<div className="statement">
-					<h1>Find out what the locals like</h1>
-					<p>Hopinion is an user based application that allows you to discover
-					breweries and beers in a location and get user feedback about those beers</p>
+				<div className="first-row">
+					<div className="bullet-1">
+						<h3>Search anywhere</h3>
+						<p>Detailed information on breweries and beers in the area are only a click away.
+						Type in the Hopinion search box and naviagte the map or sidebar to get a full listing
+						of breweries, and individual beer information</p>
+					</div>
 				</div>
 
-				<div class="landing-inputs">
-					<input type="submit" value="Sign Up" class="landing-signup" />
-					<input type="submit" value="How it Works" class="info" />
+				<div className="second-row">
+					<div className="bullet-2">
+						<h3>Learn all you need to know about local beers</h3>
+						<p>Never worry about asking for recoommendations again. Hopinion provides user ratings
+						and feedback on local beers and breweries</p>
+					</div>
 				</div>
-			</div>
 
-			<div class="first-row">
-				<div className="bullet-1">
-					<h2>Some info about the app</h2>
-					<p>Put info about app and a screenshot here</p>
+				<div className="third-row">
+					<div className="bullet-3">
+						<h3>Add, view or update your Hopinion</h3>
+						<p>Give your own input on beers that you have tried, and easily access and manage them 
+						through the "My Hopinion" page</p>
+					</div>
 				</div>
-			</div>
 
-			<div className="second-row">
-				<div className="bullet-2">
-					<h2>Some more info about the app</h2>
-					<p>Put some more info about the app and a second screenshot</p>
-				</div>
 			</div>
 			</div>
 		)
 	}
 }
+
+const mapStateToProps = state => ({
+	loggedIn: state.auth.currentUser !== null
+});
+
+export default connect(mapStateToProps)(Landing);

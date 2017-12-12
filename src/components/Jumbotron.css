@@ -1,9 +1,7 @@
 .jumbotron {
-	width: 75%;
-	height: 726px;
-	background-color: blue;
+	width: 76%;
+	height: 690px;
 	margin-left: 25%;
-	margin-top: 3.5%;
 	position: fixed;
 	overflow: scroll;
 }

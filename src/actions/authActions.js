@@ -1,7 +1,12 @@
-import {API_BASE_URL} from '../config';
+import { API_BASE_URL } from '../config';
 import jwtDecode from 'jwt-decode';
+import { TextEncoder } from 'text-encoding';
+import { fromByteArray } from 'base64-js';
+import { SubmissionError } from 'redux-form';
+	
 import { saveAuthToken, clearAuthToken } from '../localStorage';
 import { normalizeResponseErrors } from './utils';
+
 
 
 
@@ -45,7 +50,7 @@ export const setCurrentUser = currentUser => ({
 
 export const refreshAuthToken = () => (dispatch, getState) => {
 	const authToken = getState().auth.authToken;
-	return fetch(`${API_BASE_URL}/auth/refresh`, { //look up fetch routes
+	return fetch(`${API_BASE_URL}/auth/refresh`, { 
 		method: 'POST',
 		headers: {
 			Authorization: `Bearer ${authToken}`
@@ -53,7 +58,7 @@ export const refreshAuthToken = () => (dispatch, getState) => {
 	})	       
 		.then(res => normalizeResponseErrors(res))
 		.then(res => res.json())
-		.then(({authToken}) => storeAuthInfo(authToken, dispatch))
+		.then(({ authToken }) => storeAuthInfo(authToken, dispatch))
 		.catch(err => {
 			const {code} = err; // why { }?
 			if (code === 401) {
@@ -64,3 +69,34 @@ export const refreshAuthToken = () => (dispatch, getState) => {
 		});
 }
 
+const base64EncodingUTF8 = str => {
+    const encoded = new TextEncoder('utf-8').encode(str);
+    const b64Encoded = fromByteArray(encoded);
+    return b64Encoded;
+};
+
+export const login = (username, password) => dispatch => {
+	const token = base64EncodingUTF8(`${username}:${password}`);
+	
+	return (
+		fetch(`${API_BASE_URL}/auth/login`, {
+			method: 'POST',
+			headers: {
+				Authorization: `Basic ${token}`
+			}
+		})
+		.then(res => normalizeResponseErrors(res)) 
+		.then(res => res.json())
+		.then(({ authToken }) => storeAuthInfo(authToken, dispatch))
+		.catch(err => {
+			const { code } = err;
+			if (code === 401) {
+				return Promise.reject(
+					new SubmissionError({
+						_error: 'Incorrect username or password'
+					})
+				);
+			}
+		})
+	)
+}

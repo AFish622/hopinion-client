@@ -1,13 +1,17 @@
+div.signup-body {
+  background-color: #5c5a59;
+  max-height: 780px;
+  height: 780px;
+}
 
 .signup-container {
   position: relative;
-  background-color: gray;
+  background-color: #f5eeed;
   width: 40%;
-  height: 550px;
   margin-left: auto;
   margin-right: auto;
   border: 1px solid black;
-  top: 160px;
+  top: 75px;
 }
 
 form.signup-form {
@@ -19,7 +23,7 @@ form.signup-form {
   height: 5%;
   border: 1px solid black;
   text-align: center;
-  background-color: white;
+  background-color: #151B20;
   height: 10%;
   font-size: 20px;
 }
@@ -35,19 +39,20 @@ input {
   border: 1px solid black;
 }
 
-input.signup-submit {
-  text-align: center;
-  background-color: #aaa;
+button.signup-submit {
+ /* margin-right: auto;
+  margin-left: auto;*/
+  background-color: #539FC5;
+  width: 75%;
+  height: 35px;
+  margin-left: 64px;
 }
 
 .login-link {
-  color: yellow;
+  color: #999999;
 }
 
 .form-links {
   text-align: center;
 }
 
-.signup-submit {
-  margin-left: 43%;
-}

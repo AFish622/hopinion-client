@@ -1,42 +1,95 @@
 .landing-head {
 	height: 650px;
-	background-color: gray;
+	background-image: url('https://i.pinimg.com/originals/55/35/3d/55353dbd6a3e9a6f8f5a665a9e81f1bb.jpg');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
 	border-top: 1px solid black;
-	/*position: fixed;*/
 	width: 100%;
+	border-bottom: 1px solid black;
 }
 
 .title {
 	float: left;
 }
 
+.landing-nav {
+	color: white;
+}
+
 .statement {
 	text-align: center;
 	margin-top: 200px;
+	width: 500px;
+	margin-right: auto;
+	margin-left: auto;
 }
 
 input.landing-signup, input.info {
-	width: 10%;
+	width: 20%;
+}
+
+.closeInfoModal {
+	float: right;
+	background-color: #aaa;
 }
 
 .first-row {
-	background-color: #aaa;
 	margin-top: -20px;
 	height: 650px;
+	border-bottom: 1px solid black;
 }
 
 .bullet-1 {
 	float: left;
-	margin-left: 50px;
+	margin-left: 100px;
+	text-align: left;
+	margin-top: 15%;
+	width: 500px;
 }
 
 .second-row {
-	background-color: gray;
 	height: 650px;
 	margin-top: -20px;
+	border-bottom: 1px solid black;
 }
 
 .bullet-2 {
 	float: right;
-	margin-right: 50px;
+	margin-right: 100px;
+	margin-top: 15%;
+	width: 500px;
 }
+
+.third-row {
+	margin-top: -20px;
+	height: 650px;
+}
+
+.bullet-3 {
+	float: left;
+	margin-top: 15%;
+	margin-left: 100px;
+	width: 500px;
+}
+
+.modal-container {
+	position: fixed;
+}
+
+div.ReactModal__Content.ReactModal__Content--after-open {
+	background-color: #5e5d5d !important;
+	color: white;
+}
+
+.info-modal {
+	text-align: center;
+	text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000; 
+}
+
+/*h1, h2 {
+	padding-top: 25px;
+}*/

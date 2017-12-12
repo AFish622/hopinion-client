@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 import { fetchProtectedData } from '../actions/protectedDataActions';
 
 import SideBar from './SideBar';
-import NavBar from './NavBar';
+import NavBarWrapper from './NavBar';
 import Jumbotron from './Jumbotron';
 
 export class SignUp extends React.Component {
@@ -15,31 +15,34 @@ export class SignUp extends React.Component {
 		this.props.dispatch(fetchProtectedData())
 	}
 
+
+
 	render() {
-		// if (!this.props.loggedIn) {
-		// 	return <Redirect to="/" />
-		// }
+		
+		
+		if (!this.props.loggedIn) {
+			return <Redirect to="/" />
+		}
+
+		console.log("DATA", this.props.brewData)
 
 		return (
 			<div>
 				<SideBar />
-				<NavBar />
+				<NavBarWrapper />
 				<Jumbotron />
-				<div><p>username: {this.props.username}</p></div>
-				<div><p>name: {this.props.username}</p></div>
-				<div><p>protectedData: {this.props.protectedData}</p></div>
 			</div>
 		)
 	}
 }
 
 const mapStateToProps = state => {
-	const { currentUser } = state.auth; // the entire auth state object??
+	const { currentUser } = state.auth; 
 	return {
 		loggedIn: currentUser !== null,
 		username: currentUser ? state.auth.currentUser.username : '', // creating an object off of the currunt user object
 		name: currentUser ? `${currentUser.firstName} ${currentUser.lastName}` : '',
-		protectedData: state.protectedData.data
+		brewData: state.display.data
 	};
 };
 
