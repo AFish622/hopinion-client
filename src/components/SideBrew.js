@@ -1,18 +1,29 @@
 import React from 'react';
+import { updateJumbo, displayBeerCards } from '../actions/displayActions';
 import { connect } from 'react-redux';
-import { updateJumbo } from '../actions/displayActions'
 import './SideBrew.css'
 
-export function SideBreweries(props) {
+export class SideBreweries extends React.Component {
 
-	return (
-		<div className="breweryContainer">
-			<h2 onClick={() => props.dispatch(updateJumbo('beerCard'))}>Brewery Name</h2>
-			<div className="brewLogo">
-				<p>Brewery Logo</p>
+	clickOnBrewery() {
+		console.log('working!!', this.props.id)
+		return this.props.dispatch(displayBeerCards(this.props.id))
+	}
+
+	render() {
+		return (
+			<div className="breweryContainer">
+				<h2 onClick={(input) => this.clickOnBrewery() }>
+					{this.props.name}
+				</h2>
+				<div className="brewLogo">
+					<img src={this.props.logo} alt={this.props.name}/>
+				</div>
 			</div>
-		</div>
-	);
+		);
+	}
 }
+
+
 
 export default connect()(SideBreweries);

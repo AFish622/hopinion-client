@@ -18,13 +18,12 @@ export class SignUp extends React.Component {
 
 
 	render() {
-		
-		
+
+
 		if (!this.props.loggedIn) {
 			return <Redirect to="/" />
 		}
 
-		console.log("DATA", this.props.brewData)
 
 		return (
 			<div>
@@ -40,9 +39,8 @@ const mapStateToProps = state => {
 	const { currentUser } = state.auth; 
 	return {
 		loggedIn: currentUser !== null,
-		username: currentUser ? state.auth.currentUser.username : '', // creating an object off of the currunt user object
-		name: currentUser ? `${currentUser.firstName} ${currentUser.lastName}` : '',
-		brewData: state.display.data
+		// username: currentUser ? state.auth.currentUser.username : '',
+		// name: currentUser ? `${currentUser.firstName} ${currentUser.lastName}` : ''
 	};
 };
 

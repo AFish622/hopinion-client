@@ -1,9 +1,15 @@
-import { UPDATE_JUMBO, HOP_MODAL, FETCH_BREW_DATA_SUCCESS } from '../actions/displayActions';
+import { 
+		UPDATE_JUMBO,
+		HOP_MODAL,
+		FETCH_BREW_DATA_SUCCESS,
+		FETCH_BREW_DATA_ERROR 
+} from '../actions/displayActions';
 
 const initialState = {
 	jumbotron: 'map',
 	toggleHopModal: false,
-	data: ''
+	data: '',
+	error: null
 }
 
 export default function reducer(state = initialState, action) {
@@ -22,7 +28,13 @@ export default function reducer(state = initialState, action) {
 	else if (action.type === FETCH_BREW_DATA_SUCCESS) {
 		return Object.assign({}, state, {
 			data: action.data,
-			query: ''
+			error: null
+		})
+
+	}
+	else if (action.type === FETCH_BREW_DATA_ERROR) {
+		return Object.assign({}, state, {
+			error: action.error
 		})
 	}
 

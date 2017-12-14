@@ -22,8 +22,8 @@ export const searchBrew = query => dispatch => {
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({query})
 		})
-		.then(res => console.log(res.json())) // dispatch another function with data, update state, update component
 		.then(res => normalizeResponseErrors(res))
+		.then(res => res.json()) 
 		.then(({data}) => dispatch(fetchBrewDataSuccess(data)))
 		.catch(err => {
 			const { code } = err;
@@ -38,8 +38,37 @@ export const searchBrew = query => dispatch => {
 	)
 }
 
-export const FETCH_BREW_DATA_SUCCESS = 'FETCH_BREW_DATA_SUCCESS'
-export const fetchBrewDataSuccess = () => data => ({
+export const FETCH_BREW_DATA_SUCCESS = 'FETCH_BREW_DATA_SUCCESS';
+export const fetchBrewDataSuccess = data => ({
 	type: FETCH_BREW_DATA_SUCCESS,
 	data
 })
+
+export const FETCH_BREW_DATA_ERROR = 'FETCH_BREW_DATA_ERROR';
+export const fetchBrewDataError = error => ({
+	type: FETCH_BREW_DATA_ERROR,
+	error
+})
+
+export const displayBeerCards = breweryId => dispatch => {
+	return (
+		fetch(`${API_BASE_URL}/search/beers`, {
+			method: 'POST',
+			headers: {'Content-Type': 'application/json'},
+			body: JSON.stringify({breweryId})
+		})
+		.then(res => normalizeResponseErrors(res))
+		.then(res => console.log(res.json())) 
+		.then(({data}) => dispatch(fetchBrewDataSuccess(data)))
+		.catch(err => {
+			const { code } = err;
+			if (code === 401) {
+				return Promise.reject(
+					new SubmissionError({
+						_error: 'Incorrect username or password'
+					})
+				);
+			}
+		})
+	)
+}

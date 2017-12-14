@@ -19,10 +19,5 @@ export default function landingReducer(state = initialState, action) {
 		})
 	}
 
-	// if (action.type === GET_INFO) {
-	// 	return Object.assign({}, state, {
-	// 		getInfo: action.getInfo
-	// 	})
-	// }
 	return state;
 }

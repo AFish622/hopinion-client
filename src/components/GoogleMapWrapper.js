@@ -8,7 +8,7 @@ export const GoogleMapWrapper = withScriptjs(withGoogleMap((props) => {
           defaultZoom={13 }
           defaultCenter={{ lat: 37.7749, lng: -122.4194 }}
         >
-          {props.isMarkerShown && <Marker position={{ lat: 37.7636, lng: -122.400542 }} />}
+          {props.isMarkerShown && <Marker position={{ lat: 37.7636, lng: -122.4005 }} />}
         </GoogleMap>
     )
 }))
