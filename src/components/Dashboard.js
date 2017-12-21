@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 import { fetchProtectedData } from '../actions/protectedDataActions';
 
 import SideBar from './SideBar';
-import NavBarWrapper from './NavBar';
+import NavBarWrapper from './NavBarWrapper';
 import Jumbotron from './Jumbotron';
 
 export class SignUp extends React.Component {

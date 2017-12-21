@@ -1,5 +1,5 @@
 .bigCardContainer {
-	background-color: gray;
+	background-color: #EEEFEF;
 	max-height: 711px;
 	height: 711px;
 	text-align: center;
@@ -32,4 +32,17 @@ input.hopinion-text {
 .slider {
     width: 50%;
     height: 25px;
+}
+
+.details-container {
+	width: 90%;
+	border: 1px solid black;
+	margin-left: 5%;
+	background-color: #DEDEDE;
+	padding-left: 2.5%;
+	padding-right: 2.5%
+}
+
+.big-label {
+	width: 400px;
 }

@@ -36,6 +36,7 @@ export const setAuthToken = authToken => ({
 
 const storeAuthInfo = (authToken, dispatch) => {
 	const decodedToken = jwtDecode(authToken);
+	console.log('decodedToken', decodedToken)
 	dispatch(setAuthToken(authToken));
 	dispatch(setCurrentUser(decodedToken.user)) // .user?
 	saveAuthToken(authToken);

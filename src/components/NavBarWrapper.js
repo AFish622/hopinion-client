@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import NavBar from './NavBar';
 
 export function NavBarWrapper(props) {
-
 	return (
 		<div>
 			<NavBar loggedIn={props.loggedIn} />

@@ -6,14 +6,13 @@ import './SideBrew.css'
 export class SideBreweries extends React.Component {
 
 	clickOnBrewery() {
-		console.log('working!!', this.props.id)
 		return this.props.dispatch(displayBeerCards(this.props.id))
 	}
 
 	render() {
 		return (
-			<div className="breweryContainer">
-				<h2 onClick={(input) => this.clickOnBrewery() }>
+			<div className="breweryContainer" onClick={(input) => this.clickOnBrewery() }>
+				<h2>
 					{this.props.name}
 				</h2>
 				<div className="brewLogo">

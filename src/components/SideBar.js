@@ -7,27 +7,32 @@ import './SideBar.css'
 
 export class SideBar extends React.Component {
 	renderBreweries() {
-		console.log('THE DATA', this.props)
-		return this.props.brewData.map(brewery => {
+		// console.log('THE PROPS', this.props)
+		return this.props.brewData.map((brewery, index) => {
+			// console.log('11111', brewery)
 			const defaultImg = 'http://game-icons.net/icons/delapouite/originals/svg/hops.svg'
-			const logo = brewery.images && brewery.images.medium ? brewery.images.medium : defaultImg
-			return <SideBreweries key={brewery.id} id={brewery.id} name={brewery.name} logo={logo} />
+			const logo = brewery.brewery.images && brewery.brewery.images.squareMedium ? brewery.brewery.images.squareMedium : defaultImg
+			// if (brewery.name === 'Main Brewery') {
+				return <SideBreweries key={index} id={brewery.brewery.id}
+			 			name={brewery.brewery.name} logo={logo} 
+			 		/>
+			// }
 		})
 	}
 
 	render() {
-		const content = this.props.brewData ? this.renderBreweries() : ''
+		const breweryContent = this.props.brewData ? this.renderBreweries() : ''
 		
 		return (
 			<div className="side-bar"  >
-				{content}
+				{breweryContent}
 			</div>
 		);
 	}
 }
 
 const mapStateToProps = state => ({
-	brewData: state.display.data
+	brewData: state.display.breweryData
 })
 
 export default connect(mapStateToProps)(SideBar);

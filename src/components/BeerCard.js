@@ -1,18 +1,55 @@
-import React from 'react';
+	import React from 'react';
 import { connect } from 'react-redux';
-import { updateJumbo } from '../actions/displayActions'
+import Modal from 'react-modal';
+
+import { updateJumbo, setCurrentBeer } from '../actions/displayActions';
+import  BigCard  from './BigCard'
+
 
 import './BeerCard.css'
 
-export function BeerCard(props) {
-		console.log(props)
-		return (
-			<div className="beerCard" onClick={() => props.dispatch(updateJumbo('bigCard'))} >
-				<p>Beer Name</p>
-				<p>Beer Logo</p>
-				<p>Beer Style</p>
-			</div>
-		)
+export class BeerCard extends React.Component {
+
+		renderBeerCards() {
+			return this.props.beerData.map((beer, index) => {
+				const defaultImg = require('./beer.jpg');
+				const label = beer.labels && beer.labels.large ? beer.labels.large : defaultImg
+
+				return <div className='beerCard' key={index} onClick={(input) => this.clickOnBeerCard(beer.id)}>
+							<p>{beer.name}</p>
+							<p>Style: {beer.style.shortName}</p>
+							<p>ABV: {beer.abv}%</p>
+							<img className="beer-image" src={label} alt="beerLabel"/>
+						</div>
+			})
+		}
+
+		clickOnBeerCard(id) {
+			this.props.dispatch(setCurrentBeer(id))
+			this.props.dispatch(updateJumbo('bigCard'))
+			// return this.props.beerData.map(details => {
+			// 	console.log('working', this.props.beerData)
+			// 	return <BigCard key ={details.id} id={details.id} name={details.nameDisplay}
+			// 		style={details.style.shortName} description={details.style.description} abv={details.abv} 
+			// 		ibu={details.style.ibuMax} release={details.createDate}  />
+			// })
+		}	
+
+		render() {
+			const beerCardContent = this.props.beerData ? this.renderBeerCards() : ''
+
+			return (   
+				<div className="card-container">
+					{beerCardContent}
+				</div>
+			)
+		}
 }
 
-export default connect()(BeerCard);
+
+const mapStateToProps = state => ({
+	beerData: state.display.beerData,
+	currentBeer: state.display.currentBeer
+})
+
+export default connect(mapStateToProps)(BeerCard);

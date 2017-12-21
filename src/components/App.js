@@ -7,6 +7,7 @@ import SignUpWrapper from './SignUpWrapper';
 import Login from './Login';
 import Landing from './Landing';
 import Dashboard from './Dashboard';
+import myHopinion from './myHopinion';
 
 
 export class App extends React.Component {
@@ -50,6 +51,8 @@ export class App extends React.Component {
 						<Route exact path="/signup" component={SignUpWrapper} />
 						<Route exact path="/login" component={Login} />
 						<Route exact path="/dashboard" component={Dashboard} />
+						<Route exact path="/myhopinion" component={myHopinion} />
+
 					</div>
 				</Router>
 		);

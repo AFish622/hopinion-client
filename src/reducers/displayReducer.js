@@ -2,13 +2,16 @@ import {
 		UPDATE_JUMBO,
 		HOP_MODAL,
 		FETCH_BREW_DATA_SUCCESS,
-		FETCH_BREW_DATA_ERROR 
+		FETCH_BEER_DATA_SUCCESS,
+		SET_CURRENT_BEER
 } from '../actions/displayActions';
 
 const initialState = {
 	jumbotron: 'map',
 	toggleHopModal: false,
-	data: '',
+	breweryData: '',
+	beerData: '',
+	currentBeer: '',
 	error: null
 }
 
@@ -25,18 +28,31 @@ export default function reducer(state = initialState, action) {
 		})
 	}
 
+	else if (action.type === SET_CURRENT_BEER) {
+		return Object.assign({}, state, {
+			currentBeer: action.currentBeer
+		})
+	}
+
 	else if (action.type === FETCH_BREW_DATA_SUCCESS) {
 		return Object.assign({}, state, {
-			data: action.data,
+			breweryData: action.breweryData,
 			error: null
 		})
 
 	}
-	else if (action.type === FETCH_BREW_DATA_ERROR) {
+
+	else if (action.type === FETCH_BEER_DATA_SUCCESS) {
 		return Object.assign({}, state, {
-			error: action.error
+			beerData: action.beerData
 		})
 	}
+
+	// else if (action.type === FETCH_BREW_DATA_ERROR) {
+	// 	return Object.assign({}, state, {
+	// 		error: action.error
+	// 	})
+	// }
 
 	return state;
 }

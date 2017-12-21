@@ -6,6 +6,9 @@ import authReducer from './reducers/authReducer';
 import {reducer as formReducer} from 'redux-form';
 import protectedDataReducer from './reducers/protectedDataReducer';
 import { setAuthToken } from './actions/authActions';
+import mapReducer from './reducers/mapReducer';
+
+
 
 
 const store = createStore(
@@ -13,7 +16,8 @@ const store = createStore(
 		form: formReducer,
   		display: displayReducer,
   		auth: authReducer,
-  		protectedData: protectedDataReducer
+  		protectedData: protectedDataReducer,
+  		map: mapReducer
 	}),
     applyMiddleware(thunk)
 );

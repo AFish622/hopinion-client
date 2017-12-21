@@ -2,7 +2,8 @@ import React from 'react';
 import { reduxForm, Field, focus } from 'redux-form';
 import { setCurrentUser, setAuthToken } from '../actions/authActions';
 import { clearAuthToken } from '../localStorage';
-import { searchBrew } from '../actions/displayActions'
+import { searchBrew, updateJumbo } from '../actions/displayActions';
+import { getCoordinates } from '../actions/mapActions';
 
 
 import Input from './Input'
@@ -18,7 +19,13 @@ export class NavBar extends React.Component {
 	}
 
 	onSearch(value) {
-		return this.props.dispatch(searchBrew(value))
+		this.props.dispatch(searchBrew(value))
+		this.props.dispatch(getCoordinates(value))
+		this.props.dispatch(updateJumbo('map'))
+    }
+
+    getHopinions() {
+    	this.props.dispatch(updateJumbo('myHopinion'))
     }
 	
 	render() {
@@ -32,7 +39,7 @@ export class NavBar extends React.Component {
 		return (
 			<div className="nav-bar">
 				<nav>
-					<h1 className="title">Hopinion</h1>
+					<img src={require('./Hopinion.png')} className="title" alt=""/>
 
 					<form onSubmit={this.props.handleSubmit(input => this.onSearch(input['main-search']))}>
 						<Field  name="main-search" component={Input} type="text"
@@ -46,7 +53,7 @@ export class NavBar extends React.Component {
 					<ul className="nav-list">
 						{logOutButton}
 						<li>Info</li>
-						<li>My Hopinion</li>
+						<li className="myHopinions-link" onClick={() => this.getHopinions()}>My Hopinion</li>
 					</ul>
 				</nav>
 			</div>
