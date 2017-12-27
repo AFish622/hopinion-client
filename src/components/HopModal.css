@@ -5,8 +5,9 @@
 	width: 75%;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 10%;
+	margin-top: 5%;
 	border: 1px solid black;
+	word-wrap: break-word;
 }
 
 .hopModal-text {
@@ -21,7 +22,7 @@
 }
 
 button.hopModal-submit {
-	margin-bottom: 2%;
+	margin-bottom: 4%;
 	margin-right: auto;
 	margin-left: auto;
 	background-color: #539FC5;
@@ -31,11 +32,21 @@ button.hopModal-submit {
 }
 
 div.ReactModal__Content.ReactModal__Content--after-open {
-	width: 40%;
-	height: 60%;
+	width: 60%;
+	height: 80%;
 	margin-right: auto;
 	margin-left: auto;
-	margin-top: 10%;
+	margin-top: 7%;
 }
+
+input#review {
+	height: 200px;
+	width: 75%;
+}
+
+div.hopinion-links-container {
+	margin-bottom: 50px;
+}
+
 
 

@@ -81,7 +81,7 @@ div.ReactModal__Content.ReactModal__Content--after-open {
 	color: white;
 }
 
-.info-modal {
+.landing-modal {
 	text-align: center;
 	text-shadow:
     -1px -1px 0 #000,
@@ -90,6 +90,29 @@ div.ReactModal__Content.ReactModal__Content--after-open {
     1px 1px 0 #000; 
 }
 
+.mock-up1 {
+	height: 350px;
+	width: 350px;
+	position: relative;
+	left: 175%;
+	bottom: 200px;
+}
+
+.mock-up2 {
+	height: 350px;
+	width: 350px;
+	position: relative;
+	left: 8%;
+	top: 9%;
+}
+
+.mock-up3 {
+	height: 350px;
+	width: 350px;
+	position: relative;
+	left: 26%;
+	top: 20%;
+}
 /*h1, h2 {
 	padding-top: 25px;
 }*/

@@ -39,7 +39,7 @@ export class Landing extends React.Component {
 	  				isOpen={this.state.modalIsOpen}
 	  				setAppElement={'.landing-page'}
 				>
-					<div className="info-modal">
+					<div className="landing-modal">
 						<button className="closeInfoModal" onClick={this.closeModal}>X</button>
 		  				<h1>Features and Functionality</h1>
 
@@ -68,7 +68,7 @@ export class Landing extends React.Component {
 						<ul className="landing-nav">
 							<li><Link to="/login" >Log in</Link></li>
 							<li><Link to="/signup">Sign Up</Link></li>
-							<li className="title">Hopinion</li>
+							<img src={require('./Hopinion.png')} className="title" alt=""/>
 						</ul>
 					</div>
 
@@ -94,6 +94,7 @@ export class Landing extends React.Component {
 						<p>Detailed information on breweries and beers in the area are only a click away.
 						Type in the Hopinion search box and naviagte the map or sidebar to get a full listing
 						of breweries, and individual beer information</p>
+						<img className="mock-up1" src={require('./mock-up1.png')} alt="mock-up1"/>
 					</div>
 				</div>
 
@@ -103,6 +104,7 @@ export class Landing extends React.Component {
 						<p>Never worry about asking for recoommendations again. Hopinion provides user ratings
 						and feedback on local beers and breweries</p>
 					</div>
+					<img className="mock-up2" src={require('./mock-up1.png')} alt="mock-up1"/>
 				</div>
 
 				<div className="third-row">
@@ -111,6 +113,7 @@ export class Landing extends React.Component {
 						<p>Give your own input on beers that you have tried, and easily access and manage them 
 						through the "My Hopinion" page</p>
 					</div>
+					<img className="mock-up3" src={require('./mock-up1.png')} alt="mock-up1"/>
 				</div>
 
 			</div>

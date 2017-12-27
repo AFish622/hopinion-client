@@ -1,21 +1,24 @@
 import React from 'react';
 import { reduxForm, Field, focus } from 'redux-form';
-import { setCurrentUser, setAuthToken } from '../actions/authActions';
+
 import { clearAuthToken } from '../localStorage';
+import { setCurrentUser, setAuthToken } from '../actions/authActions';
 import { searchBrew, updateJumbo } from '../actions/displayActions';
+import { getHopinions } from '../actions/hopinionActions';
 import { getCoordinates } from '../actions/mapActions';
-
-
 import Input from './Input'
-
-
 import './NavBar.css'
 
 export class NavBar extends React.Component {
+
 	logOut() {
 		this.props.dispatch(setCurrentUser(null));
 		this.props.dispatch(setAuthToken(null));
 		clearAuthToken();
+	}
+
+	handleInfoClick() {
+		this.props.dispatch(updateJumbo('info'))
 	}
 
 	onSearch(value) {
@@ -24,8 +27,9 @@ export class NavBar extends React.Component {
 		this.props.dispatch(updateJumbo('map'))
     }
 
-    getHopinions() {
+    getHopinions(userId) {
     	this.props.dispatch(updateJumbo('myHopinion'))
+    	this.props.dispatch(getHopinions(userId))
     }
 	
 	render() {
@@ -52,8 +56,8 @@ export class NavBar extends React.Component {
 
 					<ul className="nav-list">
 						{logOutButton}
-						<li>Info</li>
-						<li className="myHopinions-link" onClick={() => this.getHopinions()}>My Hopinion</li>
+						<li onClick={() => this.handleInfoClick()}> Get Started </li>
+						<li className="myHopinions-link" onClick={() => this.getHopinions(this.props.currentUser.id)}>My Hopinion</li>
 					</ul>
 				</nav>
 			</div>

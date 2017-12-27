@@ -1,9 +1,7 @@
 import React from 'react';
-import Modal from 'react-modal';
 import { reduxForm, Field } from 'redux-form';
+import { postHopinion } from '../actions/hopinionActions'
 import { required, nonEmpty, length } from '../validators';
-import { connect } from 'react-redux';
-
 import Input from './Input'
 import './HopModal.css'
 
@@ -29,13 +27,14 @@ export class HopModal extends React.Component {
     	this.setState({modalIsOpen: false});
  	}
 
- 	postHopinion(values, beerId, userId) {
- 		console.log('winning', this.props.currentBeerId)
+ 	handleHopinion(values) {
+ 		const beerId = this.props.currentBeerId;
+ 		const userId = this.props.userId
+ 		// const allData = beerId + userId + values
+ 		// console.log('winning', allData)
+ 		this.props.dispatch(postHopinion(values, beerId, userId))
  	}
 
-	// ref the modal
-	// call action to fetch endpoint
-	// store data in DB
 
 	render() {
 
@@ -48,28 +47,26 @@ export class HopModal extends React.Component {
 						<h1>Beer Name</h1>
 
 						<div className="review">
-							<form onClick={this.props.handleSubmit(values => this.postHopinion(values, this.props.currentBeerId, this.props.userId))}>
+							<form>
 								<Field
-								 	name="review" type="text" placeholder="Tell us what you think" 
+								 	name="review" type="textarea" placeholder="Tell us what you think" 
 								  	component={Input} validate={[required, nonEmpty, length({min: 2, max: 200})]}
 								/>
 
 								<p>Rate it</p>
 
-								{/*<Field
-								 	name="first-name" type="text" 
-								  	component={Input} validate={[required]}
-								/>*/}
+								<Field
+								 	name="rating" type="range" 
+								  	component={Input} min={1} max={5}
+								/>
 
-								<div id="slideContainer">
-									<input type="range" min="1" max="100" value="0" class="slider" />
-								</div>
-
-								<button className="hopModal-submit" type="submit" 
-									disabled={this.props.pristine || this.props.submitting}>
+								<button 
+									className="hopModal-submit" type="submit" 
+									onClick={this.props.handleSubmit(values => this.handleHopinion(values))}
+									disabled={this.props.pristine || this.props.submitting}
+								>
 									Submit
 								</button>
-								{/*<input type="submit" value="Post Hopinion" onClick={() => this.handleSubmit(this.props.currentBeerId, this.props.userId)}/>*/}
 							</form>
 						</div>
 					</div>
@@ -77,12 +74,6 @@ export class HopModal extends React.Component {
 		)
 	}
 }
-
-const mapStateToProps = state => ({
-	currentBeerId: state.display.currentBeer,
-	beerData: state.display.beerData,
-	userId: state.auth.currentUser
-})
 
 
 export default reduxForm({

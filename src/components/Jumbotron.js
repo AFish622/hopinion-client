@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 
 import BeerCard from './BeerCard';
 import BigCard from './BigCard';
+import Info from './Info'
 import GoogleMapWrapper from './GoogleMapWrapper';
 import { MyHopinion } from './myHopinion';
 
@@ -37,6 +38,10 @@ export class Jumboton extends React.Component {
 
 			else if (this.props.jumbotron === 'myHopinion') {
 				return <MyHopinion />
+			}
+
+			else if (this.props.jumbotron === 'info') {
+				return <Info />
 			}
 		}
 

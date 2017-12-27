@@ -4,9 +4,10 @@ import Hopinions from './Hopinions';
 
 import './myHopinion.css'
 
-export	 class MyHopinion extends React.Component  {
+export class MyHopinion extends React.Component  {
 
 	render() {
+		console.log('props', this.props)
 		return(
 			<div>
 				<div className="myHop-header">
@@ -22,4 +23,9 @@ export	 class MyHopinion extends React.Component  {
 	}
 }
 
-export default connect()(MyHopinion)
+
+const mapStateToProps = state => ({
+	jumbotron: state.display.jumbotron
+})
+
+export default connect(mapStateToProps)(MyHopinion)

@@ -1,13 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import SignUp from './SignUp';
 import { Redirect } from 'react-router-dom';
+
+import SignUp from './SignUp';
+
 
 
 export function SignUpWrapper(props) {
 	const toDisplay = () => {
 		if (props.currentUser) {
-			return <Redirect to="/dashboard" />
+			return <Redirect to="/dashboard" />	
 		}
 		return <SignUp />
 	}

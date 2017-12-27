@@ -15,6 +15,7 @@ export const toggleHopModal = hopModal => ({
 	hopModal
 })
 
+
 export const searchBrew = query => dispatch => {
 		dispatch(getCoordinates(query));
 	return (

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Modal from 'react-modal';
-import HopModal from './HopModal'
+import HopModalWrapper from './HopModalWrapper'
 
 import './BigCard.css';
 
@@ -44,12 +44,12 @@ export class BigCard extends React.Component {
 			const bigCardLabel = details.labels && details.labels.medium ? details.labels.medium : defaultImg
 			return ( 
 		 		<div>
-					{<Modal
+					<Modal
 	  				isOpen={this.state.modalIsOpen}
 	  				setAppElement={'.hopinion-modal'}
 					>
-						<HopModal />
-					</Modal>}
+						<HopModalWrapper />
+					</Modal>
 
 					<div className="bigCardContainer">
 						<div className="details-container">
@@ -58,8 +58,7 @@ export class BigCard extends React.Component {
 							<h2>{details.description}</h2>
 							<img className="big-label" src={bigCardLabel} alt="big-label"/>
 							<h2>ABV: {details.abv}</h2>
-							<h2>IBU: {details.ibu}</h2>
-							<h2>{details.releaseDate}</h2>
+							<h2>IBUs: {details.style.ibuMax}</h2>
 							<input type="submit" value="Add Hopinion" className="add-hopinion" onClick={this.openModal} />
 						</div>
 					</div>

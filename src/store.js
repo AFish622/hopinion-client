@@ -1,12 +1,14 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
+import {reducer as formReducer} from 'redux-form';
+import { setAuthToken } from './actions/authActions';
+
 import { loadAuthToken } from './localStorage';
+import protectedDataReducer from './reducers/protectedDataReducer';
+import mapReducer from './reducers/mapReducer';
 import displayReducer from './reducers/displayReducer';
 import authReducer from './reducers/authReducer';
-import {reducer as formReducer} from 'redux-form';
-import protectedDataReducer from './reducers/protectedDataReducer';
-import { setAuthToken } from './actions/authActions';
-import mapReducer from './reducers/mapReducer';
+import hopinionReducer from './reducers/hopinionReducer';
 
 
 
@@ -17,7 +19,8 @@ const store = createStore(
   		display: displayReducer,
   		auth: authReducer,
   		protectedData: protectedDataReducer,
-  		map: mapReducer
+  		map: mapReducer,
+      hopinion: hopinionReducer
 	}),
     applyMiddleware(thunk)
 );

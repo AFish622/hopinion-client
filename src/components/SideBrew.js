@@ -1,5 +1,5 @@
 import React from 'react';
-import { updateJumbo, displayBeerCards } from '../actions/displayActions';
+import { displayBeerCards } from '../actions/displayActions';
 import { connect } from 'react-redux';
 import './SideBrew.css'
 

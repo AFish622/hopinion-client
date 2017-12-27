@@ -1,9 +1,7 @@
-	import React from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
-import Modal from 'react-modal';
 
 import { updateJumbo, setCurrentBeer } from '../actions/displayActions';
-import  BigCard  from './BigCard'
 
 
 import './BeerCard.css'

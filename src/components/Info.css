@@ -1,0 +1,23 @@
+.info-modal {
+	text-align: center;
+}
+
+.info-modal-container {
+	height: 100%;
+	width: 100%;
+	 background-color: gray;
+	 padding-right: 40px;
+	 background-image: url(https://ak1.picdn.net/shutterstock/videos/665761/thumb/1.jpg);
+	 background-repeat: no-repeat;
+	 background-size: 100% 100%;
+	 /*color: white;*/
+}
+
+.info-logo {
+	height: 200px;
+	width: 375px;
+	margin-top: 30px;
+	margin-bottom: -50px;
+	/*margin-right: auto;
+	margin-left: auto;*/
+}
