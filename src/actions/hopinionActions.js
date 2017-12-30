@@ -2,13 +2,13 @@ import { normalizeResponseErrors } from './utils'
 import { API_BASE_URL } from '../config';
 import { SubmissionError } from 'redux-form';
 
-export const postHopinion = (values, beerId, userId) => dispatch => {
-	console.log('THE DATA', values, beerId, userId)
+export const postHopinion = (values, beerId, userId, beerName) => dispatch => {
+	console.log('THE DATA', values, beerId, userId, )
 	return (
 		fetch(`${API_BASE_URL}/hopinion/`, {
 			method: 'POST',
 			headers: {'Content-Type': 'application/json'},
-			body: JSON.stringify({values, beerId, userId})
+			body: JSON.stringify({values, beerId, userId, beerName})
 		})
 		.then(res => normalizeResponseErrors(res))
 		.then(res => res.json())
@@ -27,16 +27,15 @@ export const postHopinion = (values, beerId, userId) => dispatch => {
 }
 
 export const getHopinions = (userId) => dispatch => {
-	console.log('data', userId)
 	return (
-		fetch(`${API_BASE_URL}/hopinion/`, {
+		fetch(`${API_BASE_URL}/hopinion/${userId}`, {
 			method: 'GET',
 			headers: {'Content-Type': 'application/json'},
-			body: JSON.stringify({userId})
+			data: JSON.stringify({userId})
 		})
 		.then(res => normalizeResponseErrors(res))
 		.then(res => res.json())
-		// .then(({data}) => dispatch(fetchBrewDataSuccess(data)))
+		.then(({hopinions}) => dispatch(HopinionSuccess(hopinions)))
 		.catch(err => {
 			const { code } = err;
 			if (code === 401) {
@@ -50,39 +49,50 @@ export const getHopinions = (userId) => dispatch => {
 	)
 }
 
-export const updateHopinion = (userId, beerId, text) => dispatch => {
-	// return (
-	// 	fetch(`${API_BASE_URL}/hopinion/update`, {
-	// 		method: 'POST',
-	// 		headers: {'Content-Type': 'application/json'},
-	// 		body: JSON.stringify({userId, beerId, text})
-	// 	})
-	// 	.then(res => normalizeResponseErrors(res))
-	// 	.then(res => res.json())
-	// 	// .then(({data}) => dispatch(fetchBrewDataSuccess(data)))
-	// 	.catch(err => {
-	// 		const { code } = err;
-	// 		if (code === 401) {
-	// 			return Promise.reject(
-	// 				new SubmissionError({
-	// 					_error: 'Incorrect username or password'
-	// 				})
-	// 			);
-	// 		}
-	// 	})
-	// )
+export const HOPINION_SUCCESS = 'HOPINION_SUCCESS';
+export const HopinionSuccess = hopinions => ({
+	type: HOPINION_SUCCESS,
+	hopinions,
+})
+
+export const HOPINION_DELETE = 'HOPINION_DELETE';
+export const hopinionDelete = hopinion => ({
+	type: HOPINION_DELETE,
+	hopinion,
+})
+
+export const deleteHopinion = hopId => dispatch => {
+	return (
+		fetch(`${API_BASE_URL}/hopinion/${hopId}`, {
+			method: 'DELETE',
+			headers: {'Content-Type': 'application/json'},
+		})
+		.then(res => normalizeResponseErrors(res))
+		.then(res => res.json())
+		.then(({hopId}) => dispatch(hopinionDelete(hopId)))
+		.catch(err => {
+			const { code } = err;
+			if (code === 401) {
+				return Promise.reject(
+					new SubmissionError({
+						_error: 'Incorrect username or password'
+					})
+				);
+			}
+		})
+	)
 }
 
-export const deleteHopinion = (userId, beerId) => dispatch => {
+export const updateHopinion = (hopId, text) => dispatch => {
+	
 	return (
-		fetch(`${API_BASE_URL}/hopinion/delete`, {
+		fetch(`${API_BASE_URL}/hopinion/update/${hopId}`, {
 			method: 'POST',
 			headers: {'Content-Type': 'application/json'},
-			body: JSON.stringify({userId, beerId})
+			body: JSON.stringify({text})
 		})
 		.then(res => normalizeResponseErrors(res))
 		.then(res => res.json())
-		// .then(({data}) => dispatch(fetchBrewDataSuccess(data)))
 		.catch(err => {
 			const { code } = err;
 			if (code === 401) {
@@ -95,4 +105,6 @@ export const deleteHopinion = (userId, beerId) => dispatch => {
 		})
 	)
 }
+
+
 

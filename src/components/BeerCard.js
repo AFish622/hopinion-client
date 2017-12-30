@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { updateJumbo, setCurrentBeer } from '../actions/displayActions';
+import { updateJumbo, setCurrentBeer, setCurrentBeerName } from '../actions/displayActions';
 
 
 import './BeerCard.css'
@@ -10,27 +10,29 @@ export class BeerCard extends React.Component {
 
 		renderBeerCards() {
 			return this.props.beerData.map((beer, index) => {
+				// console.log("SKRILL", beer)
+				const breweryName = beer.breweries.map(brewery => {
+					return brewery.name
+				});
+				console.log("SKRILL", breweryName)
 				const defaultImg = require('./beer.jpg');
 				const label = beer.labels && beer.labels.large ? beer.labels.large : defaultImg
 
-				return <div className='beerCard' key={index} onClick={(input) => this.clickOnBeerCard(beer.id)}>
+				return <div className='beerCard' key={index} onClick={(input) => this.clickOnBeerCard(beer.id, beer.name)}>
 							<p>{beer.name}</p>
 							<p>Style: {beer.style.shortName}</p>
 							<p>ABV: {beer.abv}%</p>
 							<img className="beer-image" src={label} alt="beerLabel"/>
+							<p>Rating Here</p>
+							<p>Link for comments</p>
 						</div>
 			})
 		}
 
-		clickOnBeerCard(id) {
+		clickOnBeerCard(id, beerName) {
 			this.props.dispatch(setCurrentBeer(id))
+			this.props.dispatch(setCurrentBeerName(beerName))
 			this.props.dispatch(updateJumbo('bigCard'))
-			// return this.props.beerData.map(details => {
-			// 	console.log('working', this.props.beerData)
-			// 	return <BigCard key ={details.id} id={details.id} name={details.nameDisplay}
-			// 		style={details.style.shortName} description={details.style.description} abv={details.abv} 
-			// 		ibu={details.style.ibuMax} release={details.createDate}  />
-			// })
 		}	
 
 		render() {

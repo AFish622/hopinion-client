@@ -1,12 +1,13 @@
 import React from 'react';
-import { displayBeerCards } from '../actions/displayActions';
+import { breweryBeers, updateJumbo } from '../actions/displayActions';
 import { connect } from 'react-redux';
 import './SideBrew.css'
 
 export class SideBreweries extends React.Component {
 
 	clickOnBrewery() {
-		return this.props.dispatch(displayBeerCards(this.props.id))
+		this.props.dispatch(updateJumbo('beerCard'))
+		return this.props.dispatch(breweryBeers(this.props.id))
 	}
 
 	render() {

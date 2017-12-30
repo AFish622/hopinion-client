@@ -9,6 +9,8 @@ export const updateJumbo = toDisplay => ({
 	toDisplay,
 })
 
+
+//name consistently
 export const HOP_MODAL = 'HOP_MODAL';
 export const toggleHopModal = hopModal => ({
 	type: HOP_MODAL,
@@ -41,9 +43,9 @@ export const searchBrew = query => dispatch => {
 }
 
 
-export const displayBeerCards = breweryId => dispatch => {
+export const breweryBeers = breweryId => dispatch => {
 	return (
-		fetch(`${API_BASE_URL}/search/beers`, {
+		fetch(`${API_BASE_URL}/search/breweryBeers`, {
 			method: 'POST',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({breweryId})
@@ -51,7 +53,32 @@ export const displayBeerCards = breweryId => dispatch => {
 		.then(res => normalizeResponseErrors(res))
 		.then(res => res.json())
 		.then(({data}) => dispatch(fetchBeerDataSuccess(data)))
-		.then(dispatch(updateJumbo('beerCard')))
+		// .then(dispatch(updateJumbo('beerCard')))	
+		.catch(err => {
+			const { code } = err;
+			if (code === 401) {
+				return Promise.reject(
+					new SubmissionError({
+						_error: 'Incorrect username or password'
+					})
+				);
+			}
+		})
+	)
+}
+
+export const searchBeer = beerId => dispatch => {
+	return (
+		fetch(`${API_BASE_URL}/search/beers`, {
+			method: 'POST',
+			headers: {'Content-Type': 'application/json'},
+			body: JSON.stringify({beerId})
+		})
+		.then(res => normalizeResponseErrors(res))
+		.then(res => res.json())
+		// .then(({data}) => console.log('DDDDD', data))
+		.then(({data}) => dispatch(hopinionBeerInfoSuccess(data)))
+		.then(dispatch(updateJumbo('bigCard')))
 		.catch(err => {
 			const { code } = err;
 			if (code === 401) {
@@ -71,6 +98,12 @@ export const setCurrentBeer = currentBeer => ({
 	currentBeer
 })
 
+export const SET_CURRENT_BEER_NAME = 'SET_CURRENT_BEER_NAME';
+export const setCurrentBeerName = currentBeerName => ({
+	type: SET_CURRENT_BEER_NAME,
+	currentBeerName
+})
+
 export const FETCH_BREW_DATA_SUCCESS = 'FETCH_BREW_DATA_SUCCESS';
 export const fetchBrewDataSuccess = breweryData => ({
 	type: FETCH_BREW_DATA_SUCCESS,
@@ -82,3 +115,10 @@ export const fetchBeerDataSuccess = beerData => ({
 	type: FETCH_BEER_DATA_SUCCESS,
 	beerData
 })
+
+export const HOPINION_BEER_INFO_SUCCESS = 'HOPINION_BEER_INFO_SUCCESS';
+export const hopinionBeerInfoSuccess = beerInfo => ({
+	type: HOPINION_BEER_INFO_SUCCESS,
+	beerInfo
+})
+

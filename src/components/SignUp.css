@@ -46,6 +46,8 @@ button.signup-submit {
   width: 75%;
   height: 35px;
   margin-left: 64px;
+  color: white;
+  font-size: 15px;
 }
 
 .login-link {

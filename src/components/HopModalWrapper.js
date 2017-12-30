@@ -8,6 +8,7 @@ export function HopModalWrapper(props) {
 		<div>
 			<HopModal 
 				currentBeerId={props.currentBeerId}
+				currentBeerName={props.currentBeerName}
 				beerData={props.beerData}
 				userId={props.userId}
 			/>
@@ -17,6 +18,7 @@ export function HopModalWrapper(props) {
 
 const mapStateToProps = state => ({
 	currentBeerId: state.display.currentBeer,
+	currentBeerName: state.display.currentBeerName,
 	beerData: state.display.beerData,
 	userId: state.auth.currentUser
 })

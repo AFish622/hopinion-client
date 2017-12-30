@@ -1,5 +1,7 @@
 import React from 'react';
 import { reduxForm, Field } from 'redux-form';
+
+import { updateJumbo } from '../actions/displayActions'
 import { postHopinion } from '../actions/hopinionActions'
 import { required, nonEmpty, length } from '../validators';
 import Input from './Input'
@@ -28,11 +30,12 @@ export class HopModal extends React.Component {
  	}
 
  	handleHopinion(values) {
+ 		console.log('PPP', this.props)
  		const beerId = this.props.currentBeerId;
- 		const userId = this.props.userId
- 		// const allData = beerId + userId + values
- 		// console.log('winning', allData)
- 		this.props.dispatch(postHopinion(values, beerId, userId))
+ 		const userId = this.props.userId;
+ 		const beerName = this.props.currentBeerName;
+ 		this.props.dispatch(updateJumbo('map'))
+ 		this.props.dispatch(postHopinion(values, beerId, userId, beerName))
  	}
 
 
@@ -44,7 +47,7 @@ export class HopModal extends React.Component {
 
 						<button className="closeInfoModal" onClick={this.closeModal}>X</button>
 
-						<h1>Beer Name</h1>
+						<h1>{this.props.currentBeerName}</h1>
 
 						<div className="review">
 							<form>

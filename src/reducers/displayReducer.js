@@ -3,7 +3,9 @@ import {
 		HOP_MODAL,
 		FETCH_BREW_DATA_SUCCESS,
 		FETCH_BEER_DATA_SUCCESS,
-		SET_CURRENT_BEER
+		SET_CURRENT_BEER,
+		SET_CURRENT_BEER_NAME,
+		HOPINION_BEER_INFO_SUCCESS
 } from '../actions/displayActions';
 
 const initialState = {
@@ -12,7 +14,9 @@ const initialState = {
 	breweryData: '',
 	beerData: '',
 	currentBeer: '',
-	error: null
+	currentBeerName: '',
+	error: null,
+	beerInfo: ''
 }
 
 export default function reducer(state = initialState, action) {
@@ -34,6 +38,12 @@ export default function reducer(state = initialState, action) {
 		})
 	}
 
+	else if (action.type === SET_CURRENT_BEER_NAME) {
+		return Object.assign({}, state, {
+			currentBeerName: action.currentBeerName
+		})
+	}
+
 	else if (action.type === FETCH_BREW_DATA_SUCCESS) {
 		return Object.assign({}, state, {
 			breweryData: action.breweryData,
@@ -48,11 +58,11 @@ export default function reducer(state = initialState, action) {
 		})
 	}
 
-	// else if (action.type === FETCH_BREW_DATA_ERROR) {
-	// 	return Object.assign({}, state, {
-	// 		error: action.error
-	// 	})
-	// }
+	else if (action.type === HOPINION_BEER_INFO_SUCCESS) {
+		return Object.assign({}, state, {
+			beerInfo: action.beerInfo
+		})
+	}
 
 	return state;
 }

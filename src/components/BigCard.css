@@ -1,4 +1,4 @@
-.bigCardContainer {
+.bigCardContainer, .infoCardContainer {
 	background-color: #EEEFEF;
 	max-height: 711px;
 	height: 711px;
@@ -34,7 +34,7 @@ input.hopinion-text {
     height: 25px;
 }
 
-.details-container {
+.details-container, .info-container {
 	width: 90%;
 	border: 1px solid black;
 	margin-left: 5%;
@@ -45,4 +45,8 @@ input.hopinion-text {
 
 .big-label {
 	width: 400px;
+}
+
+.info-container {
+	margin-bottom: 50px;
 }

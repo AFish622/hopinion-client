@@ -7,7 +7,7 @@ import './myHopinion.css'
 export class MyHopinion extends React.Component  {
 
 	render() {
-		console.log('props', this.props)
+		// console.log('props', this.props)
 		return(
 			<div>
 				<div className="myHop-header">
@@ -25,7 +25,7 @@ export class MyHopinion extends React.Component  {
 
 
 const mapStateToProps = state => ({
-	jumbotron: state.display.jumbotron
+	currentUser: state.auth.currentUser
 })
 
 export default connect(mapStateToProps)(MyHopinion)

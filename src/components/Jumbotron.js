@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import BeerCard from './BeerCard';
 import BigCard from './BigCard';
-import Info from './Info'
+import Info from './Info';
 import GoogleMapWrapper from './GoogleMapWrapper';
 import { MyHopinion } from './myHopinion';
 

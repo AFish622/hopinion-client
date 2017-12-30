@@ -6,6 +6,7 @@ img.myHop-logo {
 }
 
 .myHop-header {
+	margin-top: 1%;
 	background-image: url(http://craftbeeratx-wpengine.netdna-ssl.com/wp-content/uploads/2015/02/World-Of-Beers-e1423578152698.png);
 	border: 1px solid black;
 	height: 200px;
