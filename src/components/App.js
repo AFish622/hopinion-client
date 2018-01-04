@@ -5,7 +5,6 @@ import { refreshAuthToken } from '../actions/authActions';
 
 import SignUpWrapper from './SignUpWrapper';
 import LoginWrapper from './LoginWrapper'
-import Login from './Login';
 import Landing from './Landing';
 import Dashboard from './Dashboard';
 import myHopinion from './myHopinion';

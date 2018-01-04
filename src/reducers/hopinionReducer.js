@@ -13,7 +13,7 @@ export default function reducer(state = initialState, action) {
 
 	if (action.type === HOPINION_DELETE) {
 		return Object.assign({}, state, {
-			hopinions: state.hopinions.filter(hopinion => hopinion._id != action.hopId)
+			hopinions: state.hopinions.filter(hopinion => hopinion._id !== action.hopId)
 		});
 	}
 

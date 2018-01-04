@@ -1,7 +1,6 @@
 import React from 'react';
-import { withGoogleMap, GoogleMap, Marker, withScriptjs, InfoWindow } from 'react-google-maps';
+import { withGoogleMap, GoogleMap, withScriptjs } from 'react-google-maps';
 import { connect } from 'react-redux';
-import FaAnchor from "react-icons/lib/fa/anchor";
 
 import GoogleMarkerWrapper from './GoogleMarkerWrapper'
 
@@ -17,10 +16,6 @@ export const GoogleMapWrapper = withScriptjs(withGoogleMap((props) => {
 		props.dispatch(updateJumbo('beerCard'))
 		return props.dispatch(breweryBeers(breweryId))
 	}
-
-	const mouseOverMarker = brewery => {
-		console.log('mouse over', brewery)
-	} 
 
 	const renderMarkers = () => {
 		return props.breweryData.map((brewery, index) => {

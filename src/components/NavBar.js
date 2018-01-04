@@ -1,7 +1,5 @@
 import React from 'react';
 import { reduxForm, Field, focus } from 'redux-form';
-import 'font-awesome/css/font-awesome.min.css';
-
 
 import { clearAuthToken } from '../localStorage';
 import { setCurrentUser, setAuthToken } from '../actions/authActions';

@@ -1,7 +1,6 @@
 import React from 'react'
 import { Marker, InfoWindow } from 'react-google-maps';
 import { connect } from 'react-redux';
-import FaAnchor from "react-icons/lib/fa/anchor";
 
 
 export class GoogleMarkerWrapper extends React.Component {

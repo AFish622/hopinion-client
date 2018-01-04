@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux'
 
-import { updateJumbo, searchBeer } from '../actions/displayActions';
-import { postHopinion, updateHopinion, deleteHopinion } from '../actions/hopinionActions'
+import { searchBeer } from '../actions/displayActions';
+import { updateHopinion, deleteHopinion } from '../actions/hopinionActions'
 import './Hopinions.css'
 
 export class Hopinions extends React.Component  {
