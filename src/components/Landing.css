@@ -227,6 +227,12 @@ img.mock-up3 {
  	h3 {
  		font-size: 17px;
  	}
+
+ 	button.closeInfoModal {
+		position: relative;
+		bottom: 28px;
+		left: 12px;
+	}
 }
 
 @media (max-width: 375px) {
@@ -289,5 +295,12 @@ img.mock-up3 {
 	div.bullet-3 {
 		right: 17.5%;
 	}
+
+	button.closeInfoModal {
+		position: relative;
+		bottom: 28px;
+		left: 12px;
+	}
+
 
 }

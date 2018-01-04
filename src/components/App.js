@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { refreshAuthToken } from '../actions/authActions';
 
 import SignUpWrapper from './SignUpWrapper';
+import LoginWrapper from './LoginWrapper'
 import Login from './Login';
 import Landing from './Landing';
 import Dashboard from './Dashboard';
@@ -49,10 +50,9 @@ export class App extends React.Component {
 					<div>
 						<Route exact path="/" component={Landing} />
 						<Route exact path="/signup" component={SignUpWrapper} />
-						<Route exact path="/login" component={Login} />
+						<Route exact path="/login" component={LoginWrapper} />
 						<Route exact path="/dashboard" component={Dashboard} />
 						<Route exact path="/myhopinion" component={myHopinion} />
-
 					</div>
 				</Router>
 		);

@@ -35,7 +35,7 @@ li.get-started-button, li.log-out-button, li.my-hopinions-button {
 .log-out-button {
 	display: inline;
 	white-space: nowrap;
-    cursor: pointer;
+  cursor: pointer;
 }
 
 #button-holder{
@@ -50,7 +50,8 @@ li.get-started-button, li.log-out-button, li.my-hopinions-button {
     border-radius: 100px;
     position: relative;
     right: 3%;
-
+    left: 162px;
+    bottom: 103px;
 }
 
 
@@ -66,18 +67,25 @@ input#main-search {
     padding: .4em 0 .4em .6em; 
     width: 183px; 
     display: inline;
-	   margin-top: 2%;
-	   width: 225px;
-	   margin-left: 2%;
-	   position: relative;
-	   border-radius: 100px;
-	   padding-left: 1%;
+	  margin-top: 2%;
+	  width: 225px;
+	  margin-left: 2%;
+	  position: relative;
+	  border-radius: 100px;
+	  padding-left: 1%;
+    left: 192px;
+    bottom: 103px;
 }
   
 #button-holder img{
     margin: 9px;
     width: 20px;
     background-color: #FFFFFF;
+}
+
+li.get-started-button, li.log-out-button, li.my-hopinions-button {
+  position: relative;
+  bottom: 103px;
 }
 
 
@@ -121,19 +129,24 @@ input#main-search {
   }
   
   input#main-search {
-    margin-top: 3.5%;
-    width: 145px;
+    /*margin-top: 3.5%;*/
+    /*width: 145px;*/
     height: 35px;
     font-size: 12px;  
     margin-top: 7%;
     right: 5%;
+    top: -80px;
+    left: 100px;
+    width: 125px;
   }
 
   button#button-holder {
-    margin-top: 3.5%;
-    right: 6%;
+    /*margin-top: 3.5%;*/
+    /*right: 6%;*/
     margin-top: 7%;
     right: 12%;
+    top: -80px;
+    left: 72px;
   }
 
   img.title {
@@ -148,6 +161,7 @@ input#main-search {
     margin-top: 3.5%;
     position: fixed;
     margin-left: 85%;
+    top: 22px;
   }
 
   .burger-links {
@@ -187,20 +201,26 @@ input#main-search {
     padding-top: 10px;
     padding-right: 5px;
   }
+
+  .burger-nav {
+    top: 17.5px;
+  }
  
 }
 
 @media (max-width: 360px) {
   input#main-search {
     height: 30px;
-    top: 10px;
+    /*top: 10px;*/
     width: 115px;
+    top: -75px;
   }
 
   button#button-holder {
     top: 10px;
     width: 50px;
     height: 32px;
+    top: -75px;
   }
 
   button#button-holder img {
