@@ -5,5 +5,12 @@
 	position: fixed;
 	overflow: scroll;
 	margin-top: -1.5%;
+	background-color: #EEEFEF;
+	border-left: 2px solid black;
 }
 
+@media (max-width: 414px) {
+	.jumbotron {
+		width: 100%;
+	}
+}

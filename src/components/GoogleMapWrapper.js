@@ -1,21 +1,38 @@
 import React from 'react';
-import { withGoogleMap, GoogleMap, Marker, withScriptjs } from 'react-google-maps';
-
+import { withGoogleMap, GoogleMap, Marker, withScriptjs, InfoWindow } from 'react-google-maps';
 import { connect } from 'react-redux';
+import FaAnchor from "react-icons/lib/fa/anchor";
+
+import GoogleMarkerWrapper from './GoogleMarkerWrapper'
+
+
+import { breweryBeers, updateJumbo } from '../actions/displayActions';
+
 
 export const GoogleMapWrapper = withScriptjs(withGoogleMap((props) => {
 
 
+
+	const getMarkerBrewery = breweryId => {
+		props.dispatch(updateJumbo('beerCard'))
+		return props.dispatch(breweryBeers(breweryId))
+	}
+
+	const mouseOverMarker = brewery => {
+		console.log('mouse over', brewery)
+	} 
+
 	const renderMarkers = () => {
 		return props.breweryData.map((brewery, index) => {
-			return <Marker key={index} position={{ lat:brewery.latitude, lng:brewery.longitude }} />
+
+			return <GoogleMarkerWrapper brewery={brewery} key={index} getMarkerBrewery={getMarkerBrewery} />
 		})
 	}
 
     return(
         <GoogleMap
-          defaultZoom={13 }
-          defaultCenter={{ lat: props.lat, lng: props.lng }}
+          defaultZoom={ 13 }
+          center={{ lat: props.lat, lng: props.lng }}
         >
           {props.breweryData ? renderMarkers() : '' }
           

@@ -30,7 +30,6 @@ export class HopModal extends React.Component {
  	}
 
  	handleHopinion(values) {
- 		console.log('PPP', this.props)
  		const beerId = this.props.currentBeerId;
  		const userId = this.props.userId;
  		const beerName = this.props.currentBeerName;

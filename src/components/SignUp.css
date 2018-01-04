@@ -16,7 +16,7 @@ div.signup-body {
 
 form.signup-form {
   display: block;
-  padding: 5%;
+  padding: 3.5%;
 }
 
 .head {
@@ -35,26 +35,40 @@ input {
   margin-bottom: 20px;
   width: 75%;
   height: 40px;
-  font-size: 20px;
   border: 1px solid black;
 }
 
+
 button.signup-submit {
- /* margin-right: auto;
-  margin-left: auto;*/
+  margin: 0 auto;
+  display: block;
   background-color: #539FC5;
   width: 75%;
   height: 35px;
-  margin-left: 64px;
   color: white;
   font-size: 15px;
 }
 
-.login-link {
+
+a.signup-login {
   color: #999999;
 }
 
 .form-links {
   text-align: center;
+}
+
+@media only screen and (max-width: 800px) {
+   .signup-container {
+    width: 80%;
+   }
+
+   input#first-name, input#last-name, input#username, input#password, input#confirm-password {
+    font-size: 15px;
+   }
+
+   label {
+    font-size: 15px;
+   }
 }
 

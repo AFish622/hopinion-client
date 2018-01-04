@@ -64,7 +64,7 @@ export class SignUp extends React.Component {
         			</form>
 
         			<div className="form-links">
-          				<p>Already have an account?<Link to="/login"> Login</Link></p>
+          				<p>Already have an account?<Link className="signup-login" to="/login"> Login</Link></p>
         			</div>
 				</div>
 			</div>

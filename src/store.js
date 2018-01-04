@@ -12,7 +12,6 @@ import hopinionReducer from './reducers/hopinionReducer';
 
 
 
-
 const store = createStore(
 	combineReducers({
 		form: formReducer,

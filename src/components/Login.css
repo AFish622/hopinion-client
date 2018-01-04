@@ -7,8 +7,8 @@ div.login-body {
 
 div.login-container {
   background-color: #f5eeed;
-  width: 40%;
-  height: 400px;
+  width: 60%;
+  height: 500px;
   margin-left: auto;
   margin-right: auto;
   border: 1px solid black;
@@ -57,7 +57,24 @@ button.login-submit {
   color: #999999;
 }
 
-.form-links {
+div.form-links {
   text-align: center;
+}
+
+.demo-login {
+  cursor: pointer;
+  text-decoration: underline;
+  color: #999999;
+}
+
+@media only screen and (max-width: 800px) {
+  div.login-container {
+    width: 90%;
+    height: 500px;
+  }
+
+  div.form-links {
+    font-size: 15px;
+  }
 }
 

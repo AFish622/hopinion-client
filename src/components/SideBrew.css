@@ -7,3 +7,21 @@
   	padding: 7%;
   	cursor: pointer;
 }
+
+@media (max-width: 414px) {
+	.brewLogo, img {
+		width: 70%;
+		margin-right: 12%;
+	}
+
+	.side-brew-name {
+		font-size: 12px;
+		margin-right: 38%;
+	}
+
+	.breweryContainer {
+		position: relative;
+		top: 7%;
+		right: 2.5%;
+	}
+}

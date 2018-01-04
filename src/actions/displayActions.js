@@ -10,10 +10,10 @@ export const updateJumbo = toDisplay => ({
 })
 
 
-//name consistently
-export const HOP_MODAL = 'HOP_MODAL';
+
+export const TOGGLE_HOP_MODAL = 'TOGGLE_HOP_MODAL';
 export const toggleHopModal = hopModal => ({
-	type: HOP_MODAL,
+	type: TOGGLE_HOP_MODAL,
 	hopModal
 })
 
@@ -76,7 +76,6 @@ export const searchBeer = beerId => dispatch => {
 		})
 		.then(res => normalizeResponseErrors(res))
 		.then(res => res.json())
-		// .then(({data}) => console.log('DDDDD', data))
 		.then(({data}) => dispatch(hopinionBeerInfoSuccess(data)))
 		.then(dispatch(updateJumbo('bigCard')))
 		.catch(err => {

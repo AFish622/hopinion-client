@@ -10,11 +10,9 @@ export class BeerCard extends React.Component {
 
 		renderBeerCards() {
 			return this.props.beerData.map((beer, index) => {
-				// console.log("SKRILL", beer)
 				const breweryName = beer.breweries.map(brewery => {
 					return brewery.name
 				});
-				console.log("SKRILL", breweryName)
 				const defaultImg = require('./beer.jpg');
 				const label = beer.labels && beer.labels.large ? beer.labels.large : defaultImg
 
@@ -23,8 +21,6 @@ export class BeerCard extends React.Component {
 							<p>Style: {beer.style.shortName}</p>
 							<p>ABV: {beer.abv}%</p>
 							<img className="beer-image" src={label} alt="beerLabel"/>
-							<p>Rating Here</p>
-							<p>Link for comments</p>
 						</div>
 			})
 		}

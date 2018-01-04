@@ -18,17 +18,17 @@ export class App extends React.Component {
 	}
 
 	componentWillReceiveProps(nextprops) {
-		if (nextprops.loggedIn && !this.props.loggedIn) { //if they are going to be logged in, but are not already logged in?
+		if (nextprops.loggedIn && !this.props.loggedIn) { 
 			this.startPeriodicRefresh();
 		}
 
-		else if (!nextprops.loggedIn && this.props.loggedIn) { //if they are not going to be logged in, but are already logged in?
+		else if (!nextprops.loggedIn && this.props.loggedIn) { 
 			this.stopPeriodicRefresh()
 		}
 	}
 
  	startPeriodicRefresh() {
-		this.refreshInterval = setInterval( //timer to dispatch action after an hour ?
+		this.refreshInterval = setInterval( 
 			() => this.props.dispatch(refreshAuthToken()),
 			60 * 60 * 1000
 		);

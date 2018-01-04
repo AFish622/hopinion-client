@@ -5,7 +5,7 @@ import BeerCard from './BeerCard';
 import BigCard from './BigCard';
 import Info from './Info';
 import GoogleMapWrapper from './GoogleMapWrapper';
-import { MyHopinion } from './myHopinion';
+import MyHopinion from './myHopinion';
 
 
 import './Jumbotron.css'

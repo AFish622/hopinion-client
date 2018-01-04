@@ -21,3 +21,9 @@ img.myHop-logo {
 h2.myHop-data {
 	display: inline;
 }
+
+@media (max-width: 414px) {
+	.myHop-data {
+		margin-left: 3%;
+	}
+}

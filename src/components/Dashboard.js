@@ -39,8 +39,8 @@ const mapStateToProps = state => {
 	const { currentUser } = state.auth; 
 	return {
 		loggedIn: currentUser !== null,
-		// username: currentUser ? state.auth.currentUser.username : '',
-		// name: currentUser ? `${currentUser.firstName} ${currentUser.lastName}` : ''
+		username: currentUser ? state.auth.currentUser.username : '',
+		name: currentUser ? `${currentUser.firstName} ${currentUser.lastName}` : ''
 	};
 };
 

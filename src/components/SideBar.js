@@ -7,16 +7,12 @@ import './SideBar.css'
 
 export class SideBar extends React.Component {
 	renderBreweries() {
-		// console.log('THE PROPS', this.props)
 		return this.props.brewData.map((brewery, index) => {
-			// console.log('11111', brewery)
 			const defaultImg = 'http://game-icons.net/icons/delapouite/originals/svg/hops.svg'
 			const logo = brewery.brewery.images && brewery.brewery.images.squareMedium ? brewery.brewery.images.squareMedium : defaultImg
-			// if (brewery.name === 'Main Brewery') {
 				return <SideBreweries key={index} id={brewery.brewery.id}
 			 			name={brewery.brewery.name} logo={logo} 
 			 		/>
-			// }
 		})
 	}
 

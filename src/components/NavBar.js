@@ -1,5 +1,7 @@
 import React from 'react';
 import { reduxForm, Field, focus } from 'redux-form';
+import 'font-awesome/css/font-awesome.min.css';
+
 
 import { clearAuthToken } from '../localStorage';
 import { setCurrentUser, setAuthToken } from '../actions/authActions';
@@ -10,6 +12,14 @@ import Input from './Input'
 import './NavBar.css'
 
 export class NavBar extends React.Component {
+	constructor() {
+		super()
+
+		this.State = {
+			searchValue: 'san francisco'
+		}
+
+	}
 
 	logOut() {
 		this.props.dispatch(setCurrentUser(null));
@@ -18,18 +28,30 @@ export class NavBar extends React.Component {
 	}
 
 	handleInfoClick() {
-		this.props.dispatch(updateJumbo('info'))
+		this.props.dispatch(updateJumbo('info'));
 	}
 
 	onSearch(value) {
-		this.props.dispatch(searchBrew(value))
-		this.props.dispatch(getCoordinates(value))
-		this.props.dispatch(updateJumbo('map'))
+		console.log(value)
+		this.props.dispatch(searchBrew(value));
+		this.props.dispatch(getCoordinates(value));
+		this.props.dispatch(updateJumbo('map'));
     }
 
     getHopinions(userId) {
-    	this.props.dispatch(updateJumbo('myHopinion'))
-    	this.props.dispatch(getHopinions(userId))
+    	this.props.dispatch(updateJumbo('myHopinion'));
+    	this.props.dispatch(getHopinions(userId));
+    }
+
+    burgerToggle() {
+    	let burgerElement = document.querySelector('.burger-links');
+	  	if (burgerElement.style.display === 'block') {
+	        burgerElement.style.display = 'none';
+	    } 
+
+	    else {
+	        burgerElement.style.display = 'block';
+	    }
     }
 	
 	render() {
@@ -48,6 +70,7 @@ export class NavBar extends React.Component {
 					<form onSubmit={this.props.handleSubmit(input => this.onSearch(input['main-search']))}>
 						<Field  name="main-search" component={Input} type="text"
 						 id="main-search" placeholder="search cities" />
+
 						<button id='button-holder'>
     						<img src='https://png.icons8.com/metro/540/search.png' alt="search-icon" />
 						</button>
@@ -56,9 +79,20 @@ export class NavBar extends React.Component {
 
 					<ul className="nav-list">
 						{logOutButton}
-						<li onClick={() => this.handleInfoClick()}> Get Started </li>
-						<li className="myHopinions-link" onClick={() => this.getHopinions(this.props.currentUser.id)}>My Hopinion</li>
+						<li className="get-started-button" onClick={() => this.handleInfoClick()}> Get Started </li>
+						<li className="my-hopinions-button" onClick={() => this.getHopinions(this.props.currentUser.id)}>My Hopinion</li>
 					</ul>
+
+					<div className="burger-nav">
+						<i className="fa fa-bars fa-2x" onClick={this.burgerToggle} ></i>
+						<div className="burger-links">
+							<ul className="burger-list">
+								<li className="burger-bullets" onClick={() => this.getHopinions(this.props.currentUser.id)}>My Hopinion</li>
+								<li className="burger-bullets" onClick={() => this.handleInfoClick()}>Get Started</li>
+								<li className="burger-bullets" onClick={() => this.logOut()}>Log Out</li>
+							</ul>
+						</div>
+					</div>
 				</nav>
 			</div>
 		);

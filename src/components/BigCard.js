@@ -31,46 +31,6 @@ export class BigCard extends React.Component {
  		console.log('winning', this.text.value, beerId, userId)
  	}
 
- // 	renderBigCard() {
-	//  	if (this.props.beerData) {
-	// 	 			const currentBeerId = this.props.currentBeerData	
-	// 				const bigCardId = this.props.beerData.filter(beerId => beerId.id === currentBeerId)
-	// 				return bigCardId.map(details => {
-	// 					console.log('deets', details)
-	// 					const defaultImg = require('./beer.jpg')
-	// 					const bigCardLabel = details.labels && details.labels.medium ? details.labels.medium : defaultImg
-	// 					return ( 
-	// 			 			<div key={details.id}>
-	// 							<Modal
-	// 		  					isOpen={this.state.modalIsOpen}
-	// 		  					setAppElement={'.hopinion-modal'}
-	// 							>
-	// 								<HopModalWrapper />
-	// 							</Modal>
-
-	// 							<div className="bigCardContainer">
-	// 								<div className="details-container">
-	// 									<h1>{details.name}</h1>
-	// 									<h2>{details.style.name}</h2>
-	// 									<h2>{details.description}</h2>
-	// 									<img className="big-label" src={bigCardLabel} alt="big-label"/>
-	// 									<h2>ABV: {details.abv}</h2>
-	// 									<h2>IBUs: {details.style.ibuMax}</h2>
-	// 									<input type="submit" value="Add Hopinion" className="add-hopinion" onClick={this.openModal} />
-	// 								</div>
-	// 							</div>
-	// 						</div>
-	// 					)
-	// 				})
-	// 			}
-	// 			else if (this.props.beerInfo) {
-	// 				return (
-	// 					<h1>Hello</h1>
-	// 				)
-
-	// 			}
-	// }
-
 
  	render() {
 

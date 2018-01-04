@@ -13,11 +13,11 @@ export class SideBreweries extends React.Component {
 	render() {
 		return (
 			<div className="breweryContainer" onClick={(input) => this.clickOnBrewery() }>
-				<h2>
+				<h2 className="side-brew-name">
 					{this.props.name}
 				</h2>
 				<div className="brewLogo">
-					<img src={this.props.logo} alt={this.props.name}/>
+					<img className="brewLogo" src={this.props.logo} alt={this.props.name}/>
 				</div>
 			</div>
 		);

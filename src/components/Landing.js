@@ -66,11 +66,12 @@ export class Landing extends React.Component {
 				<div className="landing-head">
 					<div>
 						<ul className="landing-nav">
-							<li><Link to="/login" >Log in</Link></li>
-							<li><Link to="/signup">Sign Up</Link></li>
-							<img src={require('./Hopinion.png')} className="title" alt=""/>
+							<li className="landing-list"><Link to="/login" >Log in</Link></li>
+							<li className="landing-list"><Link to="/signup">Sign Up</Link></li>
+							<img src={require('./Hopinion.png')} className="landing-title" alt=""/>
 						</ul>
 					</div>
+
 
 					<div className="statement">
 						<h1>Find out what the locals like</h1>
@@ -79,6 +80,7 @@ export class Landing extends React.Component {
 						Create an account and get started!</p>
 					</div>
 
+			
 					<div className="landing-inputs">
 						<Link to="/login">
 							<input type="submit" value="Log in" className="landing-signup" />
@@ -104,7 +106,7 @@ export class Landing extends React.Component {
 						<p>Never worry about asking for recoommendations again. Hopinion provides user ratings
 						and feedback on local beers and breweries</p>
 					</div>
-					<img className="mock-up2" src={require('./mock-up1.png')} alt="mock-up1"/>
+					<img className="mock-up2" src={require('./mock-up3.png')} alt="mock-up1"/>
 				</div>
 
 				<div className="third-row">
@@ -113,7 +115,7 @@ export class Landing extends React.Component {
 						<p>Give your own input on beers that you have tried, and easily access and manage them 
 						through the "My Hopinion" page</p>
 					</div>
-					<img className="mock-up3" src={require('./mock-up1.png')} alt="mock-up1"/>
+					<img className="mock-up3" src={require('./mock-up2.png')} alt="mock-up1"/>
 				</div>
 
 			</div>

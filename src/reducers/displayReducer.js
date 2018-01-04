@@ -1,6 +1,6 @@
 import { 
 		UPDATE_JUMBO,
-		HOP_MODAL,
+		TOGGLE_HOP_MODAL,
 		FETCH_BREW_DATA_SUCCESS,
 		FETCH_BEER_DATA_SUCCESS,
 		SET_CURRENT_BEER,
@@ -26,7 +26,7 @@ export default function reducer(state = initialState, action) {
 		})
 	}
 
-	else if (action.type === HOP_MODAL) {
+	else if (action.type === TOGGLE_HOP_MODAL) {
 		return Object.assign({}, state, {
 			toggleHopModal: true
 		})

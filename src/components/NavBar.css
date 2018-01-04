@@ -3,13 +3,10 @@
 }
 
 nav {
-  /*padding: 1.5%;*/
   background-color: #161C21;
-  /*position: fixed;*/
   z-index: 10;
   width: 100%;
   height: 100px;
-  /*margin-bottom: 5px;*/
   border-top: 1px solid black;
   vertical-align: middle;
   position: relative;
@@ -25,11 +22,9 @@ ul.nav-list {
 	color: #999999;
 	display: inline;
 	vertical-align: middle;
-  /*float: right;*/
-	/*position: relative;*/
 }
 
-li {
+li.get-started-button, li.log-out-button, li.my-hopinions-button {
 	display: inline;
 	float: right;
 	padding-right: 2%;
@@ -46,7 +41,6 @@ li {
 #button-holder{
     background-color: #FFFFFF;
     border-top: thin solid #e5e5e5;
-    /*box-shadow: 1px 1px 1px 1px #e5e5e5;*/
     cursor: pointer;
     float: left;
     height: 38px;
@@ -86,6 +80,149 @@ input#main-search {
     background-color: #FFFFFF;
 }
 
-.myHopinions-link {
+
+.burger-nav {
+  display: none;
   cursor: pointer;
+  color: white;
 }
+
+.burger-list {
+  list-style-type: none;
+}
+
+@media (max-width: 768px) {
+
+  li.get-started-button, li.log-out-button, li.my-hopinions-button {
+    margin-top: 5%;
+    font-size: 15px;
+  }
+
+  input#main-search {
+    margin-top: 3.5%;
+    width: 175px;
+  }
+
+  button#button-holder {
+    margin-top: 3.5%;
+    right: 4%;
+  }
+
+  img.title {
+    width: 175px;
+    height: 100px;
+  }
+
+}
+
+@media (max-width: 414px) {
+  li.get-started-button, li.log-out-button, li.my-hopinions-button {
+    display: none;
+  }
+  
+  input#main-search {
+    margin-top: 3.5%;
+    width: 145px;
+    height: 35px;
+    font-size: 12px;  
+    margin-top: 7%;
+    right: 5%;
+  }
+
+  button#button-holder {
+    margin-top: 3.5%;
+    right: 6%;
+    margin-top: 7%;
+    right: 12%;
+  }
+
+  img.title {
+    width: 103px;
+    height: 58px;
+    margin-top: 5%;
+  }
+
+  .burger-nav {
+    display: block;
+    float: right;
+    margin-top: 3.5%;
+    position: fixed;
+    margin-left: 85%;
+  }
+
+  .burger-links {
+    margin-right: 50%;
+    display: block;
+    color: black;
+  }
+
+  li.burger-bullets {
+    text-decoration: none;
+    display: block;
+    float: right;
+    clear: right;
+    padding: 0.5em 0;
+    text-align: center;
+    background-color: #161C21;
+    color: white;
+    width: 85px;
+    padding-top: 10px;
+    padding-right: 5px;
+  }
+
+}
+
+@media (max-width: 375px) {
+  input#main-search {
+    right: 12%;
+    width: 129px;
+  }
+
+  button#button-holder {
+    right: 75px;
+  }
+
+  li.burger-bullets {
+    font-size: 12px;
+    padding-top: 10px;
+    padding-right: 5px;
+  }
+ 
+}
+
+@media (max-width: 360px) {
+  input#main-search {
+    height: 30px;
+    top: 10px;
+    width: 115px;
+  }
+
+  button#button-holder {
+    top: 10px;
+    width: 50px;
+    height: 32px;
+  }
+
+  button#button-holder img {
+    position: relative;
+    bottom: 3px;
+  }
+
+  img.title {
+    margin-top: 22px;
+  }
+
+  .burger-nav {
+    margin-top: 16px;
+  }
+
+  li.burger-bullets {
+    font-size: 12px;
+    padding-top: 10px;
+    padding-right: 5px;
+  }
+
+}
+
+
+
