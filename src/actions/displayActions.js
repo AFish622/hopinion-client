@@ -53,7 +53,6 @@ export const breweryBeers = breweryId => dispatch => {
 		.then(res => normalizeResponseErrors(res))
 		.then(res => res.json())
 		.then(({data}) => dispatch(fetchBeerDataSuccess(data)))
-		// .then(dispatch(updateJumbo('beerCard')))	
 		.catch(err => {
 			const { code } = err;
 			if (code === 401) {

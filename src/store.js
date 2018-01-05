@@ -14,7 +14,7 @@ import hopinionReducer from './reducers/hopinionReducer';
 
 const store = createStore(
 	combineReducers({
-		form: formReducer,
+		  form: formReducer,
   		display: displayReducer,
   		auth: authReducer,
   		protectedData: protectedDataReducer,

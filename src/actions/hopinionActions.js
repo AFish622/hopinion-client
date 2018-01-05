@@ -3,8 +3,7 @@ import { API_BASE_URL } from '../config';
 import { SubmissionError } from 'redux-form';
 
 export const postHopinion = (values, beerId, userId, beerName) => dispatch => {
-	console.log('THE DATA', values, beerId, userId, )
-	return (
+		return (
 		fetch(`${API_BASE_URL}/hopinion/`, {
 			method: 'POST',
 			headers: {'Content-Type': 'application/json'},
