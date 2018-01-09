@@ -67,6 +67,7 @@ export const breweryBeers = breweryId => dispatch => {
 }
 
 export const searchBeer = beerId => dispatch => {
+	
 	return (
 		fetch(`${API_BASE_URL}/search/beers`, {
 			method: 'POST',

@@ -21,7 +21,6 @@ const storeAuthInfo = (authToken, dispatch) => {
 	dispatch(setAuthToken(authToken));
 	dispatch(setCurrentUser(decodedToken.user))
 	saveAuthToken(authToken);
-	// need to find a spot to invoke this
 	dispatch(searchBrew('san francisco'))
 }
 
