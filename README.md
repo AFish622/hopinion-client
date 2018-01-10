@@ -31,7 +31,7 @@ revisit previous comments and ratings of all beers you have tried.
 * Continuous integration and deployment with Travis CI
 
 ## Responsive 
-The app is fully responsive and quickly adapts to all mobile, tablet, and desktop viewports.
+* The app is fully responsive and quickly adapts to all mobile, tablet, and desktop viewports.
 
 ## Security
 * User passwords are encrypted using bcrypt.js.
