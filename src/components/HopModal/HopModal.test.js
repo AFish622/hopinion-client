@@ -8,8 +8,4 @@ describe('<HopModal />', () => {
 		shallow(<HopModal />);
 	})
 
-	it('Should render the HopModal initially', () => {
-		const wrapper = shallow(<HopModal />)
-		expect(wrapper.hasClass('hopinion-modal')).toEqual(true);
-	})
 })

@@ -11,7 +11,6 @@ export const postHopinion = (values, beerId, userId, beerName) => dispatch => {
 		})
 		.then(res => normalizeResponseErrors(res))
 		.then(res => res.json())
-		// .then(({data}) => dispatch(fetchBrewDataSuccess(data)))
 		.catch(err => {
 			const { code } = err;
 			if (code === 401) {

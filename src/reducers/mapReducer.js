@@ -5,7 +5,7 @@ const initialState = {
 	lng: -122.4194
 };
 
-export default function reducer(state = initialState, action) {
+export default function mapReducer(state = initialState, action) {
 	if (action.type === UPDATE_COORDINATES) {
 		return Object.assign({}, state, {
 			lat: action.lat,

@@ -19,7 +19,7 @@ const initialState = {
 	beerInfo: ''
 }
 
-export default function reducer(state = initialState, action) {
+export default function displayReducer(state = initialState, action) {
 	if (action.type === UPDATE_JUMBO) {
 		return Object.assign({}, state, {
 			jumbotron: action.toDisplay

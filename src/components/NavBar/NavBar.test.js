@@ -8,8 +8,4 @@ describe('<NavBar />', () => {
 		shallow(<NavBar />);
 	})
 
-	it('Should render the Nav Bar initially', () => {
-		const wrapper = shallow(<NavBar />);
-		expect(wrapper.hasClass('title')).toEqual(true);
-	})
 })
