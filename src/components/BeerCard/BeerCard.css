@@ -24,6 +24,13 @@ div.beerCard {
 	border: 1px solid black;
 }
 
+@media (max-width: 1024px) {
+	div.beerCard {
+		margin-left: 14%;
+	}
+}
+
+
 @media (max-width: 414px) {
 	.beerCard {
 		margin-left: 10.5%;

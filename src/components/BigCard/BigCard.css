@@ -57,6 +57,13 @@ input.hopinion-text {
 	margin-bottom: 50px;
 }
 
+@media (max-width: 1024px) {
+	.details-container {
+		margin-top: 6%;
+	}
+}
+
+
 @media (max-width: 414px) {
 	.details-container, .info-container {
 		width: 70%;

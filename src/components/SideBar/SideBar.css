@@ -1,5 +1,5 @@
 .side-bar {
-	height: 1000px;
+	height: 100%;
 	width: 25.5%;
 	background-color: gray;
 	background-attachment: scroll;
@@ -8,6 +8,13 @@
   	overflow: scroll;
   	margin-top: 5%;
 }
+
+@media (max-width: 1024px) {
+	.side-bar {
+		width: 25%;
+	}
+}
+
 
 @media (max-width: 414px) {
 	.side-bar {

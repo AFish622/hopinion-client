@@ -1,17 +1,15 @@
 div.signup-body {
   background-color: #5c5a59;
-  max-height: 780px;
   height: 780px;
 }
 
 .signup-container {
-  position: relative;
   background-color: #f5eeed;
   width: 40%;
   margin-left: auto;
   margin-right: auto;
   border: 1px solid black;
-  top: 75px;
+  position: relative;
 }
 
 form.signup-form {
@@ -58,9 +56,57 @@ a.signup-login {
   text-align: center;
 }
 
-@media only screen and (max-width: 800px) {
-   .signup-container {
-    width: 80%;
+.labels {
+  margin-left: 12.5%;
+}
+
+.signup-title {
+  height: 130px;
+  width: 220px;
+  margin-top: 1%;
+  margin-left: 42.2%;
+}
+
+@media only screen and (max-width: 1024px) {
+  div.signup-body {
+    height: 1366px;
+  }
+
+  .signup-container {
+    width: 63%;
+    height: 50%;
+    top: 3%;
+  }
+
+  .signup-title {
+    height: 200px;
+    width: 320px;
+    margin-left: 35%;
+    margin-top: 5%
+  }
+
+  .create-account {
+    margin-top: 5.5%;
+    font-size: 25px;
+  }
+
+}
+
+@media only screen and (max-width: 768px) {
+  img.signup-title {
+    margin-left: 36%;
+    height: 150px;
+    width: 220px;
+  }
+
+   div.signup-body {
+    height: 1025px;
+    width: 100%;
+  }
+
+  .signup-container {
+    width: 61%;
+    height: 61%;
    }
 
    input#first-name, input#last-name, input#username, input#password, input#confirm-password {
@@ -71,4 +117,40 @@ a.signup-login {
     font-size: 15px;
    }
 }
+
+@media only screen and (max-width: 414px) {
+  img.signup-title {
+    margin-left: 24%;
+    margin-bottom: -10%;
+  }
+
+  .signup-container {
+    width: 85%;
+    height: 75%;
+   }
+
+  div.signup-body {
+    height: 840px;
+  }
+
+  p.create-account {
+    margin-top: 9%;
+    font-size: 22px;
+  }
+
+
+}
+
+@media only screen and (max-width: 375px) {
+  img.signup-title {
+    margin-left: 21%;
+  }
+
+  p.create-account {
+    margin-top: 10%;
+  }
+}
+
+
+
 

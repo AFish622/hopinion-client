@@ -40,8 +40,12 @@ div.ReactModal__Content.ReactModal__Content--after-open {
 }
 
 input#review {
-	height: 200px;
+	padding-top: 12px;
+	padding-bottom: 188px;
+	max-width: 75%;
 	width: 75%;
+	text-overflow: wrap;
+	word-wrap: break-word;
 }
 
 div.hopinion-links-container {
@@ -49,7 +53,14 @@ div.hopinion-links-container {
 }
 
 .hopinion-comments {
-	font-size: 20px
+	font-size: 20px;
+}
+
+.zero {
+	margin-right: 75%;
+}
+
+.hundred {
 }
 
 @media (max-width: 414px) {

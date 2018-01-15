@@ -1,5 +1,6 @@
 import React from 'react';
 import { reduxForm, Field } from 'redux-form';
+import Modal from 'react-modal';
 
 import { updateJumbo } from '../../actions/displayActions'
 import { postHopinion } from '../../actions/hopinionActions'
@@ -50,13 +51,15 @@ export class HopModal extends React.Component {
 
 						<div className="review">
 							<form>
+								<label>Tell us what you think</label>
 								<Field
-								 	name="review" type="textarea" placeholder="Tell us what you think" 
+								 	name="review" type="text"
 								  	component={Input} validate={[required, nonEmpty, length({min: 2, max: 200})]}
 								/>
 
-								<p>Rate it</p>
-
+	                        	<label htmlFor="rating">Rate It</label>
+	                        	<br />
+	                        	<label><span className="zero">0</span><span className="hundred">100</span></label>
 								<Field
 								 	name="rating" type="range" 
 								  	component={Input} min={1} max={5}

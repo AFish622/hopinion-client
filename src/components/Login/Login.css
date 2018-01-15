@@ -1,6 +1,5 @@
 div.login-body {
   background-color: #5c5a59;
-  max-height: 780px;
   height: 780px;
   padding: 10%;
 }
@@ -67,7 +66,35 @@ div.form-links {
   color: #999999;
 }
 
-@media only screen and (max-width: 800px) {
+.login-title {
+  height: 200px;
+  width: 320px;
+  margin-left: 36%;
+  margin-top: -11%
+}
+
+@media only screen and (max-width: 1024px) {
+  div.login-body {
+    height: 1366px;
+  }
+
+  div.login-container {
+    margin-top: 5%;
+    width: 80%;
+  }
+
+  .login-title {
+    margin-left: 31%;
+    margin-top: -5%;
+  }
+
+  .create-login {
+    font-size: 25px;
+    margin-top: 3%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
   div.login-container {
     width: 90%;
     height: 500px;
@@ -76,5 +103,69 @@ div.form-links {
   div.form-links {
     font-size: 15px;
   }
+
+  .login-title {
+    margin-left: 24.5%;
+  }
+
+  div.login-body {
+    height: 1025px;
+  }
+
+   .create-login {
+    margin-top: 4%;
+  }
 }
+
+@media only screen and (max-width: 414px) {
+  div.login-body {
+    height: 735px;
+  }
+
+   img.login-title {
+    margin-left: 2%;
+  }
+
+  div.login-container {
+    margin-top: -10px;
+    height: 65%;
+  }
+
+   .create-login {
+    font-size: 22px;
+    margin-top: 6%;
+  }
+}
+
+@media only screen and (max-width: 414px) {
+  img.login-title {
+    height: 130px;
+    width: 200px;
+    margin-left: 20%;
+  }
+
+  div.login-body {
+    height: 735px;
+  }
+
+  div.login-container {
+    margin-top: -10px;
+    height: 69%;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  img.login-title {
+    height: 130px;
+    width: 200px;
+    margin-left: 16.5%;
+  }
+
+  div.login-body {
+    height: 670px;
+  }
+}
+
+
+
 

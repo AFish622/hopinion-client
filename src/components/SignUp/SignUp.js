@@ -20,53 +20,59 @@ export class SignUp extends React.Component {
 	render() {
 		return (
 			<div className="signup-body">
-				<div className="signup-container">
-					<div className="head">
-						<p>Create Your Hopinion Account</p>
+				<div className="signup-image">
+					<Link to="/">
+						<img src={require('../images/Hopinion.png')} className="signup-title" alt="hopinion-logo"/>
+					</Link>
+				</div>
+					<div className="signup-container">
+						<div className="head">
+							<p className="create-account">Create Your Hopinion Account</p>
+						</div>
+
+						<form className="signup-form" >
+	                        <label className="labels" htmlFor="firstName">First name</label>
+							<Field
+							 name="first-name" type="text" value="Austin"
+							  component={Input} tabindex="1"
+							/>
+
+	                        <label className="labels" htmlFor="lastName">Last name</label>
+							<Field
+							 name="last-name" type="text" value="Fisher"
+							   component={Input} tabindex="2"
+							/>
+
+	                        <label className="labels" htmlFor="username">Username</label>
+							<Field
+							 name="username" type="text"
+							  component={Input} validate={[required, nonEmpty, isTrimmed]}
+							/>
+
+	                        <label className="labels" htmlFor="password">Password</label>
+							<Field
+							 name="password" type="password"
+							  component={Input} validate={[required, length({min: 3, max: 20}), isTrimmed]}
+							/>
+
+	                        <label className="labels" htmlFor="passwordConfirm">Confirm password</label>
+							<Field
+							 name="confirm-password" type="password"
+							  component={Input} validate={[required, nonEmpty, matches('password')]}
+							/>
+
+							<button className="signup-submit" type="submit" onClick={this.props.handleSubmit(values => this.onSubmit(values))}
+							disabled={this.props.pristine || this.props.submitting}>
+							Submit
+							</button>
+          				
+        				</form>
+
+	        			<div className="form-links">
+	          				<p>Already have an account?<Link className="signup-login" to="/login"> Login</Link></p>
+	        			</div>
 					</div>
 
-					<form className="signup-form" onClick={this.props.handleSubmit(values => this.onSubmit(values))} >
-                        <label htmlFor="firstName">First name</label>
-						<Field
-						 name="first-name" type="text" value="Austin"
-						  component={Input} validate={[required, nonEmpty]}
-						/>
-
-                        <label htmlFor="lastName">Last name</label>
-						<Field
-						 name="last-name" type="text" value="Fisher"
-						   component={Input} validate={[required, nonEmpty]}
-						/>
-
-                        <label htmlFor="username">Username</label>
-						<Field
-						 name="username" type="text" value="user"
-						  component={Input} validate={[required, nonEmpty, isTrimmed]}
-						/>
-
-                        <label htmlFor="password">Password</label>
-						<Field
-						 name="password" type="password" value="123"
-						  component={Input} validate={[required, length({min: 3, max: 20}), isTrimmed]}
-						/>
-
-                        <label htmlFor="passwordConfirm">Confirm password</label>
-						<Field
-						 name="confirm-password" type="password" value="123"
-						  component={Input} validate={[required, nonEmpty, matches('password')]}
-						/>
-
-						<button className="signup-submit" type="submit" 
-						disabled={this.props.pristine || this.props.submitting}>
-						Submit
-						</button>
-          				
-        			</form>
-
-        			<div className="form-links">
-          				<p>Already have an account?<Link className="signup-login" to="/login"> Login</Link></p>
-        			</div>
-				</div>
 			</div>
 		)
 	}

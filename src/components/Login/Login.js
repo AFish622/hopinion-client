@@ -18,28 +18,33 @@ export class SignUp extends React.Component {
 	 }
 
 	 goToDemoAccount() {
-	        return this.props.dispatch(login('testing', '123'))
+	        return this.props.dispatch(login('Demo', '123'))
 	 }
 
 	render() {
 		
 		return (
 			<div className="login-body">
+
+				<Link to="/">
+					<img src={require('../images/Hopinion.png')} className="login-title" alt="hopinion-logo"/>
+				</Link>
+
 				<div className="login-container">
 					<div className="head">
-						<p>Login to Hopinion</p>
+						<p className="create-login">Login to Hopinion</p>
 					</div>
 
 					<div className="form-container">
 
 						<form className="login-form">
-							<label htmlFor="username">Username</label>
+							<label  className="labels" htmlFor="username">Username</label>
 		          			<Field
 						 		name="username" type="text" value="user"
 						  		component={Input} validate={[]}
 							/>
 
-							<label htmlFor="password">Password</label>
+							<label className="labels" htmlFor="password">Password</label>
 		          			<Field
 						 		name="password" type="password" value="user"
 						  		component={Input} validate={[]}

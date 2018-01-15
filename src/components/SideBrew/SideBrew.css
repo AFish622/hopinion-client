@@ -8,10 +8,29 @@
   	cursor: pointer;
 }
 
+.brewLogo {
+	margin-right: 3.5%;
+}
+
+@media (max-width: 1024px) {
+	img.brewLogo {
+		width: 90%;
+		margin-left: 4%;
+	}
+
+	.breweryContainer {
+		padding-top: .5%;
+	}
+
+	input#main-search {
+		margin-top: 3%;
+	}
+}
+
 @media (max-width: 414px) {
-	.brewLogo, img {
-		width: 70%;
-		margin-right: 12%;
+	img.brewLogo{
+		width: 59%;
+		margin-left: -35.5%;
 	}
 
 	.side-brew-name {

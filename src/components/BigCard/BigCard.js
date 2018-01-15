@@ -27,10 +27,6 @@ export class BigCard extends React.Component {
     	this.setState({modalIsOpen: false});
  	}
 
- 	postHopinion(beerId, userId) {
- 		console.log('winning', this.text.value, beerId, userId)
- 	}
-
 
  	render() {
 

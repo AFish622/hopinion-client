@@ -30,7 +30,6 @@ export class NavBar extends React.Component {
 	}
 
 	onSearch(value) {
-		console.log(value)
 		this.props.dispatch(searchBrew(value));
 		this.props.dispatch(getCoordinates(value));
 		this.props.dispatch(updateJumbo('map'));
@@ -67,7 +66,7 @@ export class NavBar extends React.Component {
 
 					<form onSubmit={this.props.handleSubmit(input => this.onSearch(input['main-search']))}>
 						<Field  name="main-search" component={Input} type="text"
-						 id="main-search" placeholder="search cities" />
+						 id="main-search" />
 
 						<button id='button-holder'>
     						<img src='https://png.icons8.com/metro/540/search.png' alt="search-icon" />

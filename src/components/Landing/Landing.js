@@ -68,14 +68,14 @@ export class Landing extends React.Component {
 						<ul className="landing-nav">
 							<li className="landing-list"><Link to="/login" >Log in</Link></li>
 							<li className="landing-list"><Link to="/signup">Sign Up</Link></li>
-							<img src={require('../images/Hopinion.png')} className="landing-title" alt=""/>
+							<img src={require('../images/Hopinion.png')} className="landing-title" alt="hopinion-logo"/>
 						</ul>
 					</div>
 
 
 					<div className="statement">
-						<h1>Find out what the locals like</h1>
-						<p>Hopinion is a user based application that allows you to discover
+						<h1 className="statement-header">Find out what the locals like</h1>
+						<p className="statement-body">Hopinion is a user based application that allows you to discover
 						breweries and beers in a location and get user feedback about those beers. 
 						Create an account and get started!</p>
 					</div>
