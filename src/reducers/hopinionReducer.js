@@ -12,8 +12,10 @@ export default function reducer(state = initialState, action) {
 	}
 
 	if (action.type === HOPINION_DELETE) {
+		const filtered = state.hopinions.filter(hopinion => hopinion._id !== action.hopinion)
+		console.log('ACTIONS', action)
 		return Object.assign({}, state, {
-			hopinions: state.hopinions.filter(hopinion => hopinion._id !== action.hopId)
+			hopinions: filtered
 		});
 	}
 

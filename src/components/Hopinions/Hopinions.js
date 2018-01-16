@@ -11,6 +11,10 @@ export class Hopinions extends React.Component  {
 		this.hopinionText = {}
 	}
 
+	componentWillUpdate(nextProps, nextState) {
+		console.log("PROPS", nextProps, nextState)
+	}
+
 	handleDelete(id) {
  		this.props.dispatch(deleteHopinion(id))
  	}

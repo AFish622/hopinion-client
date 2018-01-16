@@ -69,9 +69,7 @@ export const deleteHopinion = hopId => dispatch => {
 		})
 		.then(res => normalizeResponseErrors(res))
 		.then(res => res.json())
-		// .then(({hopId}) => dispatch(hopinionDelete(hopId)))
-		.then(({hopId}) => console.log('banana', hopId))
-
+		.then(({hopId}) => dispatch(hopinionDelete(hopId)))
 		.catch(err => {
 			const { code } = err;
 			if (code === 401) {
