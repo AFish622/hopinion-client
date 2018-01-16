@@ -270,7 +270,6 @@ img.mock-up3 {
 	div.landing-head {
 		height: 400px;
 		width: 110%
-		/*max-width: 414px;*/
 	}
 
 	.statement {
@@ -302,13 +301,13 @@ img.mock-up3 {
  		height: 300px;
  		width: 300px;
  		bottom: 448px;
- 		left: 6%;
+ 		left: 3%;
  	}
 
  	div.bullet-1 {
  		position: relative;
  		width: 80%;
- 		right: -6%;
+ 		right: -3%;
  		top: 50%;
  		font-size: 15px;
  		text-align: center;
@@ -332,7 +331,7 @@ img.mock-up3 {
  		height: 300px;
  		width: 300px;
  		top: -42%;
- 		left: 17.2%;
+ 		left: 16.2%;
  	}
 
  	.third-row {
@@ -353,7 +352,7 @@ img.mock-up3 {
  		height: 300px;
  		width: 300px;
  		top: -145px;
- 		left: 19%;
+ 		left: 18%;
  	}
 
  	h3 {
@@ -378,7 +377,7 @@ img.mock-up3 {
 	}
 
  	img.mock-up1 {
-		left: 6%;
+		left: 0%;
 		margin-top: 20px;
 	}
 
@@ -391,7 +390,7 @@ img.mock-up3 {
 	}
 
  	img.mock-up2 {
-		left: 18%;
+		left: 17%;
 		top: -43%;
  	}
 
@@ -400,7 +399,7 @@ img.mock-up3 {
  	}
 
  	img.mock-up3 {
- 		left: 17%;
+ 		left: 16%;
  		top: -31%;
  	}
 
@@ -428,7 +427,7 @@ img.mock-up3 {
 	}
 
  	img.mock-up1 {
-		left: 6.5%;
+		left: 0.5%;
 	}
 
 	div.bullet-1 {
