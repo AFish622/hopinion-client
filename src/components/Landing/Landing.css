@@ -40,11 +40,13 @@ a {
 
 input.landing-signup, input.info {
 	width: 20%;
+	cursor: pointer;
 }
 
 .closeInfoModal {
 	float: right;
 	background-color: #aaa;
+	cursor: pointer;
 }
 
 .first-row {
@@ -99,7 +101,6 @@ input.landing-signup, input.info {
 }
 
 div.ReactModal__Content.ReactModal__Content--after-open {
-	/*background-color: #5e5d5d !important;*/
   	background-color: #161C21 !important;
 	color: white;
 }

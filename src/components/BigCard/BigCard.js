@@ -48,9 +48,9 @@ export class BigCard extends React.Component {
 
 									<div className="bigCardContainer">
 										<div className="details-container">
-											<h1>{details.name}</h1>
-											<h2>{details.style.name}</h2>
-											<h2>{details.description}</h2>
+											<h1 className="details-name">{details.name}</h1>
+											<h2 className="details-style">{details.style.name}</h2>
+											<h2 className="beer-details">{details.description}</h2>
 											<img className="big-label" src={bigCardLabel} alt="big-label"/>
 											<h2>ABV: {details.abv}</h2>
 											<h2>IBUs: {details.style.ibuMax}</h2>

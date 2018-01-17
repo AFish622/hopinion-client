@@ -33,27 +33,27 @@ div.beerCard {
 
 @media (max-width: 414px) {
 	.beerCard {
-		margin-left: 10.5%;
+		margin-left: 10% !important;
 	}
 
 	.beer-image {
-		margin-left: 12%;
+		margin-left: 0%;
 	}
 }
 
 @media (max-width: 375px) {
 	.beerCard {
-		margin-left: 8%;
+		margin-left: 7% !important;
 	}
 
 	.beer-image {
-		margin-left: 12%;
+		margin-left: 0%;
 	}
 }
 
 @media (max-width: 360px) {
 	.beerCard {
-		margin-left: 5.5%;
+		margin-left: 5.5% !important;
 	}
 }
 

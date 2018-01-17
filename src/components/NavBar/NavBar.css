@@ -29,7 +29,8 @@ li.get-started-button, li.log-out-button, li.my-hopinions-button {
 	float: right;
 	padding-right: 2%;
 	font-size: 20px;
-	margin-top: 2.5%
+	margin-top: 2.5%;
+  cursor: pointer;
 }
 
 .log-out-button {

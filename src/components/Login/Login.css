@@ -50,6 +50,7 @@ button.login-submit {
   margin-left: 12.5%;
   color: white;
   font-size: 15px;
+  cursor: pointer;
 }
 
 .register-link {

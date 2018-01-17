@@ -12,7 +12,6 @@ import './Login.css'
 
 export class SignUp extends React.Component {
 	onSubmit(values) {
-		console.log('clicking login', values)
 	        const { username, password } = values;
 	        return this.props.dispatch(login(username, password))
 	 }

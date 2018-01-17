@@ -70,13 +70,24 @@ input.hopinion-text {
 		margin-left: 3%;
 		font-size: 12px;
 		margin-top: -25px;
-		height: 675px;
+		height: 110%;
 	}
 
 	img.big-label {
 		height: 170px;
 		width: 170px;
-		margin-left: 11%;
+	}
+
+	.beer-details {
+		font-size: 14px;
+	}
+
+	.details-name {
+		font-size: 23px;
+	}
+
+	.details-style {
+		font-size: 17px;
 	}
 
 	input.add-hopinion {
