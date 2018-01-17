@@ -53,17 +53,23 @@
 	}
 
 	li.started-bullets {
-		margin-right: 25%;
-		margin-bottom: 1%;
+		text-align: center;
+		margin-bottom: 5%;
 		overflow: scroll;
+		font-size: 12px;
+	}
+
+	.started-list-container {
+		margin-left: -12%;
+    	width: 90%;
 	}
 	
 }
 
-@media (max-width: 414px) {
+/*@media (max-width: 414px) {
 	li.started-bullets {
 		font-size: 12px;
 		margin-right: 34%;
 		margin-bottom: 2%;
 	}
-}
+}*/

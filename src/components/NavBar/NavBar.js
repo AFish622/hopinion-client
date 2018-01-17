@@ -3,9 +3,8 @@ import { reduxForm, Field, focus } from 'redux-form';
 
 import { clearAuthToken } from '../../localStorage';
 import { setCurrentUser, setAuthToken } from '../../actions/authActions';
-import { searchBrew, updateJumbo } from '../../actions/displayActions';
+import { searchBrew, updateJumbo, clearError } from '../../actions/displayActions';
 import { getHopinions } from '../../actions/hopinionActions';
-import { getCoordinates } from '../../actions/mapActions';
 import Input from '../Input/Input'
 import './NavBar.css'
 
@@ -13,7 +12,7 @@ export class NavBar extends React.Component {
 	constructor() {
 		super()
 
-		this.State = {
+		this.state = {
 			searchValue: 'san francisco'
 		}
 
@@ -31,8 +30,8 @@ export class NavBar extends React.Component {
 
 	onSearch(value) {
 		this.props.dispatch(searchBrew(value));
-		this.props.dispatch(getCoordinates(value));
 		this.props.dispatch(updateJumbo('map'));
+		this.props.dispatch(clearError(''))
     }
 
     getHopinions(userId) {
@@ -59,6 +58,13 @@ export class NavBar extends React.Component {
             );
         }
 
+        let errorMessage;
+        if (this.props.errorMessage) {
+        	errorMessage = (
+        		<p className="error-message">Search returned with no results</p>
+        	)
+        }
+
 		return (
 			<div className="nav-bar">
 				<nav>
@@ -72,7 +78,8 @@ export class NavBar extends React.Component {
     						<img src='https://png.icons8.com/metro/540/search.png' alt="search-icon" />
 						</button>
 					</form>
-
+					
+					{errorMessage}
 
 					<ul className="nav-list">
 						{logOutButton}

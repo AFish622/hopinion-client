@@ -1,6 +1,6 @@
 import React from 'react';
 import { reduxForm, Field } from 'redux-form';
-import Modal from 'react-modal';
+// import Modal from 'react-modal';
 
 import { updateJumbo } from '../../actions/displayActions'
 import { postHopinion } from '../../actions/hopinionActions'

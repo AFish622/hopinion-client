@@ -5,7 +5,9 @@ import {
 		FETCH_BEER_DATA_SUCCESS,
 		SET_CURRENT_BEER,
 		SET_CURRENT_BEER_NAME,
-		HOPINION_BEER_INFO_SUCCESS
+		HOPINION_BEER_INFO_SUCCESS,
+		SET_ERROR,
+		CLEAR_ERROR
 } from '../actions/displayActions';
 
 const initialState = {
@@ -16,7 +18,8 @@ const initialState = {
 	currentBeer: '',
 	currentBeerName: '',
 	error: null,
-	beerInfo: ''
+	beerInfo: '',
+	errorMessage: ''
 }
 
 export default function displayReducer(state = initialState, action) {
@@ -63,6 +66,20 @@ export default function displayReducer(state = initialState, action) {
 			beerInfo: action.beerInfo
 		})
 	}
+
+	else if (action.type === SET_ERROR) {
+		return Object.assign({}, state, {
+			errorMessage: action.query
+		})
+	}
+
+	else if (action.type === CLEAR_ERROR) {
+		return Object.assign({}, state, {
+			errorMessage: action.query
+		})
+	}
+
+
 
 	return state;
 }

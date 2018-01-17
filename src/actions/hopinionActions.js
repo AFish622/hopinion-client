@@ -53,7 +53,6 @@ export const HopinionSuccess = hopinions => ({
 	hopinions,
 })
 
-// hop id gets sent back here
 export const HOPINION_DELETE = 'HOPINION_DELETE';
 export const hopinionDelete = hopinion => ({
 	type: HOPINION_DELETE,
@@ -61,7 +60,6 @@ export const hopinionDelete = hopinion => ({
 })
 
 export const deleteHopinion = hopId => dispatch => {
-	console.log('the hop id is', hopId)
 	return (
 		fetch(`${API_BASE_URL}/hopinion/${hopId}`, {
 			method: 'DELETE',

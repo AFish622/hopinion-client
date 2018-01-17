@@ -100,6 +100,20 @@ li.get-started-button, li.log-out-button, li.my-hopinions-button {
   list-style-type: none;
 }
 
+.error-message {
+  color: red;
+  position: absolute;
+  top: 55px;
+  left: 16%;
+}
+
+@media (max-width: 1024px) {
+  .error-message {
+    left: 21.5%;
+  }
+}
+
+
 @media (max-width: 768px) {
 
   li.get-started-button, li.log-out-button, li.my-hopinions-button {
@@ -121,6 +135,12 @@ li.get-started-button, li.log-out-button, li.my-hopinions-button {
     width: 175px;
     height: 100px;
   }
+  
+  .error-message {
+    left: 28%;
+    top: 60px;
+    font-size: 12px;
+  }
 
 }
 
@@ -130,8 +150,6 @@ li.get-started-button, li.log-out-button, li.my-hopinions-button {
   }
   
   input#main-search {
-    /*margin-top: 3.5%;*/
-    /*width: 145px;*/
     height: 35px;
     font-size: 12px;  
     margin-top: 7%;
@@ -142,8 +160,6 @@ li.get-started-button, li.log-out-button, li.my-hopinions-button {
   }
 
   button#button-holder {
-    /*margin-top: 3.5%;*/
-    /*right: 6%;*/
     margin-top: 7%;
     right: 12%;
     top: -80px;
@@ -185,6 +201,12 @@ li.get-started-button, li.log-out-button, li.my-hopinions-button {
     padding-right: 5px;
   }
 
+   .error-message {
+    left: 27%;
+    top: 65px;
+    font-size: 10px;
+  }
+
 }
 
 @media (max-width: 375px) {
@@ -206,13 +228,16 @@ li.get-started-button, li.log-out-button, li.my-hopinions-button {
   .burger-nav {
     top: 17.5px;
   }
+
+  .error-message {
+    left: 29%;
+  }
  
 }
 
 @media (max-width: 360px) {
   input#main-search {
     height: 30px;
-    /*top: 10px;*/
     width: 115px;
     top: -75px;
   }

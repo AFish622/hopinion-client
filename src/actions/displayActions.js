@@ -1,7 +1,7 @@
 import { API_BASE_URL } from '../config';
 import { SubmissionError } from 'redux-form';
 import { normalizeResponseErrors } from './utils';
-import { getCoordinates } from './mapActions'
+import { getCoordinates } from './mapActions';
 
 export const UPDATE_JUMBO = 'UPDATE_JUMBO';
 export const updateJumbo = toDisplay => ({
@@ -19,7 +19,6 @@ export const toggleHopModal = hopModal => ({
 
 
 export const searchBrew = query => dispatch => {
-		dispatch(getCoordinates(query));
 	return (
 		fetch(`${API_BASE_URL}/search/breweries`, {
 			method: 'POST',
@@ -28,7 +27,13 @@ export const searchBrew = query => dispatch => {
 		})
 		.then(res => normalizeResponseErrors(res))
 		.then(res => res.json())
-		.then(({data}) => dispatch(fetchBrewDataSuccess(data)))
+		.then(({data}) => {
+			if (!data) {
+				return dispatch(setError(query))
+			}
+			dispatch(getCoordinates(query));
+			dispatch(fetchBrewDataSuccess(data))
+		})
 		.catch(err => {
 			const { code } = err;
 			if (code === 401) {
@@ -90,6 +95,18 @@ export const searchBeer = beerId => dispatch => {
 		})
 	)
 }
+
+export const SET_ERROR = 'SET_ERROR';
+export const setError = query => ({
+	type: SET_ERROR,
+	query
+})
+
+export const CLEAR_ERROR = 'CLEAR_ERROR'
+export const clearError = message => ({
+	type: CLEAR_ERROR,
+	message
+})
 
 export const SET_CURRENT_BEER = 'SET_CURRENT_BEER';
 export const setCurrentBeer = currentBeer => ({
